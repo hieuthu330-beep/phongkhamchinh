@@ -58,7 +58,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1924, 100);
+            panel1.Size = new Size(1684, 85);
             panel1.TabIndex = 0;
             // 
             // label80
@@ -66,9 +66,9 @@
             label80.AutoSize = true;
             label80.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label80.ForeColor = Color.FromArgb(0, 106, 97);
-            label80.Location = new Point(94, 52);
+            label80.Location = new Point(82, 44);
             label80.Name = "label80";
-            label80.Size = new Size(134, 20);
+            label80.Size = new Size(130, 19);
             label80.TabIndex = 10;
             label80.Text = "CLINIC & WELLNESS";
             // 
@@ -77,9 +77,9 @@
             button7.FlatAppearance.BorderSize = 0;
             button7.FlatStyle = FlatStyle.Flat;
             button7.Image = (Image)resources.GetObject("button7.Image");
-            button7.Location = new Point(1844, 24);
+            button7.Location = new Point(1614, 20);
             button7.Name = "button7";
-            button7.Size = new Size(42, 40);
+            button7.Size = new Size(37, 34);
             button7.TabIndex = 9;
             button7.UseVisualStyleBackColor = true;
             // 
@@ -88,9 +88,9 @@
             btnDatlichkham.FlatAppearance.BorderSize = 0;
             btnDatlichkham.FlatStyle = FlatStyle.Flat;
             btnDatlichkham.Image = (Image)resources.GetObject("btnDatlichkham.Image");
-            btnDatlichkham.Location = new Point(1702, 24);
+            btnDatlichkham.Location = new Point(1489, 20);
             btnDatlichkham.Name = "btnDatlichkham";
-            btnDatlichkham.Size = new Size(123, 44);
+            btnDatlichkham.Size = new Size(108, 37);
             btnDatlichkham.TabIndex = 8;
             btnDatlichkham.UseVisualStyleBackColor = true;
             btnDatlichkham.Click += btnDatlichkham_Click;
@@ -101,9 +101,9 @@
             button5.FlatAppearance.BorderSize = 0;
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button5.Location = new Point(1415, 36);
+            button5.Location = new Point(1238, 31);
             button5.Name = "button5";
-            button5.Size = new Size(167, 29);
+            button5.Size = new Size(146, 25);
             button5.TabIndex = 7;
             button5.Text = "Lịch hẹn của tôi";
             button5.UseVisualStyleBackColor = true;
@@ -115,9 +115,9 @@
             button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button4.Location = new Point(1162, 36);
+            button4.Location = new Point(1017, 31);
             button4.Name = "button4";
-            button4.Size = new Size(152, 29);
+            button4.Size = new Size(133, 25);
             button4.TabIndex = 6;
             button4.Text = "Đội ngũ bác sĩ";
             button4.UseVisualStyleBackColor = true;
@@ -128,9 +128,9 @@
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button3.Location = new Point(879, 39);
+            button3.Location = new Point(769, 33);
             button3.Name = "button3";
-            button3.Size = new Size(184, 29);
+            button3.Size = new Size(161, 25);
             button3.TabIndex = 5;
             button3.Text = "Chuyên khoa";
             button3.UseVisualStyleBackColor = true;
@@ -141,9 +141,9 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button2.Location = new Point(685, 36);
+            button2.Location = new Point(599, 31);
             button2.Name = "button2";
-            button2.Size = new Size(140, 29);
+            button2.Size = new Size(122, 25);
             button2.TabIndex = 4;
             button2.Text = "Giới thiệu";
             button2.UseVisualStyleBackColor = true;
@@ -154,9 +154,9 @@
             btnTrangchu.FlatAppearance.BorderSize = 0;
             btnTrangchu.FlatStyle = FlatStyle.Flat;
             btnTrangchu.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnTrangchu.Location = new Point(462, 36);
+            btnTrangchu.Location = new Point(404, 31);
             btnTrangchu.Name = "btnTrangchu";
-            btnTrangchu.Size = new Size(134, 29);
+            btnTrangchu.Size = new Size(117, 25);
             btnTrangchu.TabIndex = 3;
             btnTrangchu.Text = "Trang chủ";
             btnTrangchu.UseVisualStyleBackColor = true;
@@ -173,7 +173,7 @@
             label1.ImageAlign = ContentAlignment.MiddleLeft;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(290, 54);
+            label1.Size = new Size(260, 48);
             label1.TabIndex = 2;
             label1.Text = "       EcoHealth";
             // 
@@ -181,16 +181,16 @@
             // 
             panelMain.AutoScroll = true;
             panelMain.Dock = DockStyle.Fill;
-            panelMain.Location = new Point(0, 100);
+            panelMain.Location = new Point(0, 85);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1924, 955);
+            panelMain.Size = new Size(1684, 812);
             panelMain.TabIndex = 1;
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1924, 1055);
+            ClientSize = new Size(1684, 897);
             Controls.Add(panelMain);
             Controls.Add(panel1);
             Name = "FormMain";

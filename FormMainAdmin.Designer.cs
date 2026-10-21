@@ -38,12 +38,12 @@
             button1 = new Button();
             label3 = new Label();
             panel4 = new Panel();
-            button4 = new Button();
+            btnDangxuat = new Button();
             panel3 = new Panel();
             label2 = new Label();
             label1 = new Label();
             pictureBox1 = new PictureBox();
-            panel2 = new Panel();
+            pnlNoidung = new Panel();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -84,6 +84,7 @@
             btn_Thuoc.Text = "            Quản lý thuốc";
             btn_Thuoc.TextAlign = ContentAlignment.MiddleLeft;
             btn_Thuoc.UseVisualStyleBackColor = true;
+            btn_Thuoc.Click += btn_Thuoc_Click;
             // 
             // btn_Nhanvien
             // 
@@ -101,6 +102,7 @@
             btn_Nhanvien.Text = "            Quản lý nhân viên ";
             btn_Nhanvien.TextAlign = ContentAlignment.MiddleLeft;
             btn_Nhanvien.UseVisualStyleBackColor = true;
+            btn_Nhanvien.Click += btn_Nhanvien_Click;
             // 
             // button5
             // 
@@ -137,6 +139,7 @@
             btn_Chuyenkhoa.Text = "            Quản lý chuyên khoa";
             btn_Chuyenkhoa.TextAlign = ContentAlignment.MiddleLeft;
             btn_Chuyenkhoa.UseVisualStyleBackColor = true;
+            btn_Chuyenkhoa.Click += btn_Chuyenkhoa_Click;
             // 
             // button3
             // 
@@ -188,30 +191,31 @@
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(0, 72, 123);
-            panel4.Controls.Add(button4);
+            panel4.Controls.Add(btnDangxuat);
             panel4.Dock = DockStyle.Bottom;
             panel4.Location = new Point(0, 943);
             panel4.Name = "panel4";
             panel4.Size = new Size(249, 75);
             panel4.TabIndex = 1;
             // 
-            // button4
+            // btnDangxuat
             // 
-            button4.BackColor = Color.FromArgb(0, 72, 123);
-            button4.FlatAppearance.BorderColor = Color.FromArgb(0, 78, 132);
-            button4.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 72, 123);
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.ForeColor = Color.White;
-            button4.Image = (Image)resources.GetObject("button4.Image");
-            button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(22, 17);
-            button4.Name = "button4";
-            button4.Size = new Size(221, 46);
-            button4.TabIndex = 0;
-            button4.Text = "        Đăng xuất";
-            button4.TextAlign = ContentAlignment.MiddleLeft;
-            button4.UseVisualStyleBackColor = false;
+            btnDangxuat.BackColor = Color.FromArgb(0, 72, 123);
+            btnDangxuat.FlatAppearance.BorderColor = Color.FromArgb(0, 78, 132);
+            btnDangxuat.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 72, 123);
+            btnDangxuat.FlatStyle = FlatStyle.Flat;
+            btnDangxuat.Font = new Font("Segoe UI", 12.2264156F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDangxuat.ForeColor = Color.White;
+            btnDangxuat.Image = (Image)resources.GetObject("btnDangxuat.Image");
+            btnDangxuat.ImageAlign = ContentAlignment.MiddleLeft;
+            btnDangxuat.Location = new Point(22, 17);
+            btnDangxuat.Name = "btnDangxuat";
+            btnDangxuat.Size = new Size(221, 46);
+            btnDangxuat.TabIndex = 0;
+            btnDangxuat.Text = "        Đăng xuất";
+            btnDangxuat.TextAlign = ContentAlignment.MiddleLeft;
+            btnDangxuat.UseVisualStyleBackColor = false;
+            btnDangxuat.Click += btnDangxuat_Click;
             // 
             // panel3
             // 
@@ -256,20 +260,21 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // panel2
+            // pnlNoidung
             // 
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(249, 0);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1410, 1018);
-            panel2.TabIndex = 2;
+            pnlNoidung.BackColor = Color.White;
+            pnlNoidung.Dock = DockStyle.Fill;
+            pnlNoidung.Location = new Point(249, 0);
+            pnlNoidung.Name = "pnlNoidung";
+            pnlNoidung.Size = new Size(1410, 1018);
+            pnlNoidung.TabIndex = 2;
             // 
             // FormMainAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1659, 1018);
-            Controls.Add(panel2);
+            Controls.Add(pnlNoidung);
             Controls.Add(panel1);
             Name = "FormMainAdmin";
             Text = "FormMainAdmin";
@@ -293,11 +298,11 @@
         private Button button1;
         private Label label3;
         private Panel panel4;
-        private Button button4;
+        private Button btnDangxuat;
         private Panel panel3;
         private Label label2;
         private Label label1;
         private PictureBox pictureBox1;
-        private Panel panel2;
+        private Panel pnlNoidung;
     }
 }

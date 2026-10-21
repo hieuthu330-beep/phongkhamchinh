@@ -72,6 +72,13 @@ namespace phongkham1
                     FormKhamBenh frmbasi = new FormKhamBenh();
                     frmbasi.Show();
                     this.Hide();
+
+                }
+                else if(vaiTro == "Admin")
+                {
+                    FormMainAdmin frmadmin = new FormMainAdmin();
+                    frmadmin.Show();
+                    this.Hide();
                 }
                 else if (vaiTro == "NhanVien")
                 {

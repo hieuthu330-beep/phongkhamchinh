@@ -134,7 +134,7 @@
   <data name="btn_Nhanvien.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACkAAAAlCAYAAADfosCNAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAQ
-        lQAAEJUB0ADQtQAAAA50RVh0U29mdHdhcmUARmlnbWGesZZjAAACpElEQVRYR9VY7VHjMBClhOvgrgRK
+        lAAAEJQBAkcyUQAAAA50RVh0U29mdHdhcmUARmlnbWGesZZjAAACpElEQVRYR9VY7VHjMBClhOvgrgRK
         SAl0ACWkA64D0sHRgc4r6TclpARKSAkwz7OG1fPKiWzHuXszO4C1klb78bTi7m4BQgg/YozPMca3GOMp
         xviRUnpPKf0JIfxi/c2Rc74XkXcYNiHPPG8zwEuD586JiLzw/E3geBAGH7qu+62hZ2N3vMZVISIPZMAR
         uWl1Ukp70nmz41dH13UHa0CtQETklfSKg1wVFM6qhxyPrxdyEXmylILf8W0YJyOP5exvhBB21ki7xiKA
@@ -203,7 +203,7 @@
         HFRY4lYo18Uw2GQGJvgv2U9Ld2WL5PoXUxcLuyTi4cwAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDangxuat.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAW
         JQAAFiUBSVIk8AAAAA50RVh0U29mdHdhcmUARmlnbWGesZZjAAAAzUlEQVRIS82W0Q2CQBAFqcAOLMRG
