@@ -77,8 +77,8 @@ namespace phongkham1
         // Sự kiện khi bấm nút "Lưu" (sau khi bấm Thêm)
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            string tenChuyenKhoa = txtTenchuyenkhoa.Text.Trim();
-            string moTa = txtMota.Text.Trim();
+            string tenChuyenKhoa = txtTenchuyenkhoa.Text;
+            string moTa = txtMota.Text;
 
             // Lấy giá trị trạng thái từ ComboBox: nếu chọn "Đang hoạt động" thì lưu số 1, ngược lại lưu số 0
             int trangThai = (cboTrangthai.Text == "Đang hoạt động") ? 1 : 0;
@@ -130,9 +130,9 @@ namespace phongkham1
                 return;
             }
 
-            string maChuyenKhoa = txtMachuyenkhoa.Text.Trim();
-            string tenChuyenKhoa = txtTenchuyenkhoa.Text.Trim();
-            string moTa = txtMota.Text.Trim();
+            string maChuyenKhoa = txtMachuyenkhoa.Text;
+            string tenChuyenKhoa = txtTenchuyenkhoa.Text;
+            string moTa = txtMota.Text;
 
             // Chuyển đổi trạng thái từ ComboBox thành số nguyên để lưu vào CSDL
             int trangThai = (cboTrangthai.Text == "Đang hoạt động") ? 1 : 0;
@@ -221,7 +221,7 @@ namespace phongkham1
         // Sự kiện khi bấm nút "Tìm kiếm"
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            string tuKhoa = txtTimkiem.Text.Trim(); // Lấy từ khóa người dùng gõ vào ô tìm kiếm
+            string tuKhoa = txtTimkiem.Text; // Lấy từ khóa người dùng gõ vào ô tìm kiếm
 
             // Lọc dữ liệu theo Mã chuyên khoa hoặc Tên chuyên khoa chứa từ khóa
             string sql = @"SELECT ChuyenKhoaID, TenChuyenKhoa, MoTa, 
