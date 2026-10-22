@@ -71,10 +71,11 @@
             dgvDanhSachCho.BackgroundColor = Color.FromArgb(247, 249, 252);
             dgvDanhSachCho.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachCho.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
-            dgvDanhSachCho.Location = new Point(16, 35);
+            dgvDanhSachCho.Location = new Point(18, 41);
+            dgvDanhSachCho.Margin = new Padding(3, 4, 3, 4);
             dgvDanhSachCho.Name = "dgvDanhSachCho";
             dgvDanhSachCho.RowHeadersWidth = 51;
-            dgvDanhSachCho.Size = new Size(773, 160);
+            dgvDanhSachCho.Size = new Size(883, 188);
             dgvDanhSachCho.TabIndex = 0;
             dgvDanhSachCho.CellMouseClick += dgvDanhSachCho_CellMouseClick;
             // 
@@ -163,7 +164,8 @@
     0.5F,
     1F
     };
-            siticonePanel1.Location = new Point(133, 311);
+            siticonePanel1.Location = new Point(152, 366);
+            siticonePanel1.Margin = new Padding(3, 4, 3, 4);
             siticonePanel1.Name = "siticonePanel1";
             siticonePanel1.PatternColor = Color.FromArgb(30, 0, 0, 0);
             siticonePanel1.PatternStyle = System.Drawing.Drawing2D.HatchStyle.Max;
@@ -173,7 +175,7 @@
             siticonePanel1.RippleMaxSize = 600F;
             siticonePanel1.RippleSpeed = 15F;
             siticonePanel1.ShowBorder = true;
-            siticonePanel1.Size = new Size(376, 508);
+            siticonePanel1.Size = new Size(430, 548);
             siticonePanel1.TabIndex = 1;
             siticonePanel1.TabStop = true;
             siticonePanel1.UseBorderGradient = false;
@@ -185,9 +187,9 @@
             // 
             lblTrieuchung.AutoSize = true;
             lblTrieuchung.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTrieuchung.Location = new Point(30, 22);
+            lblTrieuchung.Location = new Point(34, 26);
             lblTrieuchung.Name = "lblTrieuchung";
-            lblTrieuchung.Size = new Size(98, 21);
+            lblTrieuchung.Size = new Size(113, 25);
             lblTrieuchung.TabIndex = 0;
             lblTrieuchung.Text = "Triệu Chứng";
             // 
@@ -225,7 +227,8 @@
     0.5F,
     1F
     };
-            siticonePanel2.Location = new Point(544, 311);
+            siticonePanel2.Location = new Point(622, 366);
+            siticonePanel2.Margin = new Padding(3, 4, 3, 4);
             siticonePanel2.Name = "siticonePanel2";
             siticonePanel2.PatternColor = Color.FromArgb(30, 0, 0, 0);
             siticonePanel2.PatternStyle = System.Drawing.Drawing2D.HatchStyle.Max;
@@ -235,7 +238,7 @@
             siticonePanel2.RippleMaxSize = 600F;
             siticonePanel2.RippleSpeed = 15F;
             siticonePanel2.ShowBorder = true;
-            siticonePanel2.Size = new Size(403, 508);
+            siticonePanel2.Size = new Size(461, 548);
             siticonePanel2.TabIndex = 2;
             siticonePanel2.TabStop = true;
             siticonePanel2.UseBorderGradient = false;
@@ -247,9 +250,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12.2264156F);
-            label2.Location = new Point(25, 176);
+            label2.Location = new Point(29, 207);
             label2.Name = "label2";
-            label2.Size = new Size(66, 25);
+            label2.Size = new Size(77, 30);
             label2.TabIndex = 3;
             label2.Text = "lời dặn";
             // 
@@ -257,28 +260,30 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12.2264156F);
-            label1.Location = new Point(20, 58);
+            label1.Location = new Point(23, 68);
             label1.Name = "label1";
-            label1.Size = new Size(105, 25);
+            label1.Size = new Size(123, 30);
             label1.TabIndex = 2;
             label1.Text = "chuẩn đoán";
             // 
             // txtLoiDan
             // 
             txtLoiDan.Font = new Font("Segoe UI", 12.2264156F);
-            txtLoiDan.Location = new Point(144, 176);
+            txtLoiDan.Location = new Point(165, 207);
+            txtLoiDan.Margin = new Padding(3, 4, 3, 4);
             txtLoiDan.Multiline = true;
             txtLoiDan.Name = "txtLoiDan";
-            txtLoiDan.Size = new Size(216, 161);
+            txtLoiDan.Size = new Size(246, 189);
             txtLoiDan.TabIndex = 1;
             // 
             // txtChanDoan
             // 
             txtChanDoan.Font = new Font("Segoe UI", 12.2264156F);
-            txtChanDoan.Location = new Point(144, 55);
+            txtChanDoan.Location = new Point(165, 65);
+            txtChanDoan.Margin = new Padding(3, 4, 3, 4);
             txtChanDoan.Multiline = true;
             txtChanDoan.Name = "txtChanDoan";
-            txtChanDoan.Size = new Size(216, 95);
+            txtChanDoan.Size = new Size(246, 111);
             txtChanDoan.TabIndex = 0;
             // 
             // siticonePanel3
@@ -319,7 +324,8 @@
     0.5F,
     1F
     };
-            siticonePanel3.Location = new Point(972, 62);
+            siticonePanel3.Location = new Point(1111, 73);
+            siticonePanel3.Margin = new Padding(3, 4, 3, 4);
             siticonePanel3.Name = "siticonePanel3";
             siticonePanel3.PatternColor = Color.FromArgb(30, 0, 0, 0);
             siticonePanel3.PatternStyle = System.Drawing.Drawing2D.HatchStyle.Max;
@@ -329,7 +335,7 @@
             siticonePanel3.RippleMaxSize = 600F;
             siticonePanel3.RippleSpeed = 15F;
             siticonePanel3.ShowBorder = true;
-            siticonePanel3.Size = new Size(639, 757);
+            siticonePanel3.Size = new Size(730, 841);
             siticonePanel3.TabIndex = 3;
             siticonePanel3.TabStop = true;
             siticonePanel3.UseBorderGradient = false;
@@ -341,9 +347,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12.2264156F);
-            label5.Location = new Point(457, 133);
+            label5.Location = new Point(522, 156);
             label5.Name = "label5";
-            label5.Size = new Size(94, 25);
+            label5.Size = new Size(110, 30);
             label5.TabIndex = 6;
             label5.Text = "cách dùng";
             // 
@@ -351,9 +357,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12.2264156F);
-            label4.Location = new Point(457, 27);
+            label4.Location = new Point(522, 32);
             label4.Name = "label4";
-            label4.Size = new Size(57, 25);
+            label4.Size = new Size(66, 30);
             label4.TabIndex = 5;
             label4.Text = "thuốc";
             // 
@@ -361,17 +367,18 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12.2264156F);
-            label3.Location = new Point(457, 79);
+            label3.Location = new Point(522, 93);
             label3.Name = "label3";
-            label3.Size = new Size(83, 25);
+            label3.Size = new Size(94, 30);
             label3.TabIndex = 4;
             label3.Text = "số lượng";
             // 
             // btnThemThuocVaoDon
             // 
-            btnThemThuocVaoDon.Location = new Point(228, 188);
+            btnThemThuocVaoDon.Location = new Point(261, 221);
+            btnThemThuocVaoDon.Margin = new Padding(3, 4, 3, 4);
             btnThemThuocVaoDon.Name = "btnThemThuocVaoDon";
-            btnThemThuocVaoDon.Size = new Size(194, 25);
+            btnThemThuocVaoDon.Size = new Size(222, 29);
             btnThemThuocVaoDon.TabIndex = 3;
             btnThemThuocVaoDon.Text = "thêm vào đơn";
             btnThemThuocVaoDon.UseVisualStyleBackColor = true;
@@ -381,17 +388,19 @@
             // 
             cbThuoc.Font = new Font("Segoe UI", 12.2264156F);
             cbThuoc.FormattingEnabled = true;
-            cbThuoc.Location = new Point(63, 27);
+            cbThuoc.Location = new Point(72, 32);
+            cbThuoc.Margin = new Padding(3, 4, 3, 4);
             cbThuoc.Name = "cbThuoc";
-            cbThuoc.Size = new Size(388, 33);
+            cbThuoc.Size = new Size(443, 36);
             cbThuoc.TabIndex = 2;
             // 
             // txtCachDung
             // 
             txtCachDung.Font = new Font("Segoe UI", 12.2264156F);
-            txtCachDung.Location = new Point(63, 127);
+            txtCachDung.Location = new Point(72, 149);
+            txtCachDung.Margin = new Padding(3, 4, 3, 4);
             txtCachDung.Name = "txtCachDung";
-            txtCachDung.Size = new Size(388, 31);
+            txtCachDung.Size = new Size(443, 35);
             txtCachDung.TabIndex = 1;
             // 
             // dgvChiTietDon
@@ -399,10 +408,11 @@
             dgvChiTietDon.BackgroundColor = Color.FromArgb(247, 249, 252);
             dgvChiTietDon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChiTietDon.Columns.AddRange(new DataGridViewColumn[] { Column7, Column8, Column9, Column10 });
-            dgvChiTietDon.Location = new Point(44, 262);
+            dgvChiTietDon.Location = new Point(50, 308);
+            dgvChiTietDon.Margin = new Padding(3, 4, 3, 4);
             dgvChiTietDon.Name = "dgvChiTietDon";
             dgvChiTietDon.RowHeadersWidth = 51;
-            dgvChiTietDon.Size = new Size(551, 453);
+            dgvChiTietDon.Size = new Size(630, 467);
             dgvChiTietDon.TabIndex = 0;
             // 
             // Column7
@@ -444,9 +454,10 @@
             // txtSoLuong
             // 
             txtSoLuong.Font = new Font("Segoe UI", 12.2264156F);
-            txtSoLuong.Location = new Point(63, 76);
+            txtSoLuong.Location = new Point(72, 89);
+            txtSoLuong.Margin = new Padding(3, 4, 3, 4);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(388, 31);
+            txtSoLuong.Size = new Size(443, 35);
             txtSoLuong.TabIndex = 0;
             // 
             // btnHoanTatKham
@@ -455,9 +466,10 @@
             btnHoanTatKham.FlatStyle = FlatStyle.Flat;
             btnHoanTatKham.Font = new Font("Segoe UI", 10.18868F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnHoanTatKham.ForeColor = Color.White;
-            btnHoanTatKham.Location = new Point(488, 840);
+            btnHoanTatKham.Location = new Point(649, 940);
+            btnHoanTatKham.Margin = new Padding(3, 4, 3, 4);
             btnHoanTatKham.Name = "btnHoanTatKham";
-            btnHoanTatKham.Size = new Size(147, 45);
+            btnHoanTatKham.Size = new Size(168, 53);
             btnHoanTatKham.TabIndex = 4;
             btnHoanTatKham.Text = "Hoàn tất";
             btnHoanTatKham.UseVisualStyleBackColor = false;
@@ -467,9 +479,9 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(149, 27);
+            label6.Location = new Point(170, 32);
             label6.Name = "label6";
-            label6.Size = new Size(112, 32);
+            label6.Size = new Size(130, 38);
             label6.TabIndex = 5;
             label6.Text = "Lịch Hẹn";
             // 
@@ -504,7 +516,8 @@
     0.5F,
     1F
     };
-            siticonePanel4.Location = new Point(138, 62);
+            siticonePanel4.Location = new Point(158, 73);
+            siticonePanel4.Margin = new Padding(3, 4, 3, 4);
             siticonePanel4.Name = "siticonePanel4";
             siticonePanel4.PatternColor = Color.FromArgb(30, 0, 0, 0);
             siticonePanel4.PatternStyle = System.Drawing.Drawing2D.HatchStyle.Max;
@@ -514,7 +527,7 @@
             siticonePanel4.RippleMaxSize = 600F;
             siticonePanel4.RippleSpeed = 15F;
             siticonePanel4.ShowBorder = true;
-            siticonePanel4.Size = new Size(809, 239);
+            siticonePanel4.Size = new Size(925, 281);
             siticonePanel4.TabIndex = 6;
             siticonePanel4.TabStop = true;
             siticonePanel4.UseBorderGradient = false;
@@ -524,16 +537,17 @@
             // 
             // FormKhamBenh
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 249, 252);
-            ClientSize = new Size(1684, 897);
+            ClientSize = new Size(1924, 1055);
             Controls.Add(siticonePanel4);
             Controls.Add(label6);
             Controls.Add(btnHoanTatKham);
             Controls.Add(siticonePanel3);
             Controls.Add(siticonePanel2);
             Controls.Add(siticonePanel1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FormKhamBenh";
             Text = "FormKhamBenh";
             FormClosing += FormKhamBenh_FormClosing;

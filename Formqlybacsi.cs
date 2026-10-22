@@ -231,25 +231,7 @@ namespace phongkham1
         }
 
         // Đổi từ MouseClick sang CellMouseClick để chuẩn xác và tránh lỗi vùng trống
-        private void dtgDanhsachbacsi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dtgDanhsachbacsi.Rows[e.RowIndex];
 
-                txtMabs.Text = row.Cells[0].Value?.ToString() ?? "";
-                txtHoten.Text = row.Cells[1].Value?.ToString() ?? "";
-                cboChuyenkhoa.Text = row.Cells[2].Value?.ToString() ?? "";
-                txtMota.Text = row.Cells[3].Value?.ToString() ?? "";
-                txtSdt.Text = row.Cells[4].Value?.ToString() ?? "";
-
-                // Nếu cột 5 là TaiKhoanID, cột 6 là TrangThai (tùy theo thứ tự select của câu lệnh SQL ở hàm Load)
-                if (row.Cells.Count > 6)
-                {
-                    cboTrangthai.Text = row.Cells[6].Value?.ToString() ?? "";
-                }
-            }
-        }
 
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
@@ -270,6 +252,26 @@ namespace phongkham1
                 if (dt.Rows.Count == 0)
                 {
                     MessageBox.Show("Không tìm thấy kết quả nào phù hợp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void dtgDanhsachbacsi_CellMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dtgDanhsachbacsi.Rows[e.RowIndex];
+
+                txtMabs.Text = row.Cells[0].Value?.ToString() ?? "";
+                txtHoten.Text = row.Cells[1].Value?.ToString() ?? "";
+                cboChuyenkhoa.Text = row.Cells[2].Value?.ToString() ?? "";
+                txtMota.Text = row.Cells[3].Value?.ToString() ?? "";
+                txtSdt.Text = row.Cells[4].Value?.ToString() ?? "";
+
+                // Nếu cột 5 là TaiKhoanID, cột 6 là TrangThai (tùy theo thứ tự select của câu lệnh SQL ở hàm Load)
+                if (row.Cells.Count > 6)
+                {
+                    cboTrangthai.Text = row.Cells[6].Value?.ToString() ?? "";
                 }
             }
         }

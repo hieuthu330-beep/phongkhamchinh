@@ -55,10 +55,11 @@
             dgvDanhSachChoThanhToan.BackgroundColor = SystemColors.ButtonHighlight;
             dgvDanhSachChoThanhToan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDanhSachChoThanhToan.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6 });
-            dgvDanhSachChoThanhToan.Location = new Point(12, 156);
+            dgvDanhSachChoThanhToan.Location = new Point(14, 184);
+            dgvDanhSachChoThanhToan.Margin = new Padding(3, 4, 3, 4);
             dgvDanhSachChoThanhToan.Name = "dgvDanhSachChoThanhToan";
             dgvDanhSachChoThanhToan.RowHeadersWidth = 51;
-            dgvDanhSachChoThanhToan.Size = new Size(805, 532);
+            dgvDanhSachChoThanhToan.Size = new Size(809, 626);
             dgvDanhSachChoThanhToan.TabIndex = 0;
             dgvDanhSachChoThanhToan.CellMouseClick += dgvDanhSachChoThanhToan_CellMouseClick;
             // 
@@ -121,10 +122,11 @@
             dgvChiTietDonThanhToan.BackgroundColor = SystemColors.ButtonHighlight;
             dgvChiTietDonThanhToan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvChiTietDonThanhToan.Columns.AddRange(new DataGridViewColumn[] { Column7, Column8, Column9, Column10, Column12, Column11 });
-            dgvChiTietDonThanhToan.Location = new Point(866, 156);
+            dgvChiTietDonThanhToan.Location = new Point(841, 184);
+            dgvChiTietDonThanhToan.Margin = new Padding(3, 4, 3, 4);
             dgvChiTietDonThanhToan.Name = "dgvChiTietDonThanhToan";
             dgvChiTietDonThanhToan.RowHeadersWidth = 51;
-            dgvChiTietDonThanhToan.Size = new Size(806, 450);
+            dgvChiTietDonThanhToan.Size = new Size(815, 529);
             dgvChiTietDonThanhToan.TabIndex = 1;
             // 
             // Column7
@@ -185,9 +187,9 @@
             // 
             lblTongTien.AutoSize = true;
             lblTongTien.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTongTien.Location = new Point(853, 642);
+            lblTongTien.Location = new Point(975, 755);
             lblTongTien.Name = "lblTongTien";
-            lblTongTien.Size = new Size(431, 41);
+            lblTongTien.Size = new Size(486, 46);
             lblTongTien.TabIndex = 2;
             lblTongTien.Text = "Hiển thị tổng tiền thanh toán";
             // 
@@ -197,9 +199,10 @@
             btnThanhToanXuatThuoc.FlatStyle = FlatStyle.Flat;
             btnThanhToanXuatThuoc.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnThanhToanXuatThuoc.ForeColor = Color.White;
-            btnThanhToanXuatThuoc.Location = new Point(598, 725);
+            btnThanhToanXuatThuoc.Location = new Point(683, 853);
+            btnThanhToanXuatThuoc.Margin = new Padding(3, 4, 3, 4);
             btnThanhToanXuatThuoc.Name = "btnThanhToanXuatThuoc";
-            btnThanhToanXuatThuoc.Size = new Size(245, 62);
+            btnThanhToanXuatThuoc.Size = new Size(280, 73);
             btnThanhToanXuatThuoc.TabIndex = 3;
             btnThanhToanXuatThuoc.Text = "Xác nhận thanh toán & Xuất thuốc";
             btnThanhToanXuatThuoc.UseVisualStyleBackColor = false;
@@ -209,9 +212,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18.3396225F, FontStyle.Bold);
-            label1.Location = new Point(304, 103);
+            label1.Location = new Point(347, 121);
             label1.Name = "label1";
-            label1.Size = new Size(127, 37);
+            label1.Size = new Size(146, 42);
             label1.TabIndex = 4;
             label1.Text = "Lịch Hẹn";
             // 
@@ -219,24 +222,25 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 18.3396225F, FontStyle.Bold);
-            label2.Location = new Point(1195, 103);
+            label2.Location = new Point(1138, 121);
             label2.Name = "label2";
-            label2.Size = new Size(155, 37);
+            label2.Size = new Size(179, 42);
             label2.TabIndex = 4;
             label2.Text = "Đơn Thuốc";
             // 
             // formThanhToanPhatthuocNhanvien
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(247, 249, 252);
-            ClientSize = new Size(1684, 897);
+            ClientSize = new Size(1727, 1055);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(btnThanhToanXuatThuoc);
             Controls.Add(lblTongTien);
             Controls.Add(dgvChiTietDonThanhToan);
             Controls.Add(dgvDanhSachChoThanhToan);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "formThanhToanPhatthuocNhanvien";
             Text = "formThanhToanPhatthuocNhanvien";
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachChoThanhToan).EndInit();
