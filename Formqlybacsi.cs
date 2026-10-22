@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace phongkham1
 {
@@ -15,7 +16,7 @@ namespace phongkham1
         {
             InitializeComponent();
             LoadChuyenkhoa();
-            LoaddtgDanhsachbacsi();
+            LoaddtgDanhsachbacsi();   
         }
 
 
@@ -33,39 +34,26 @@ namespace phongkham1
 
         private void LoaddtgDanhsachbacsi()
         {
-            string sql = @"SELECT b.BacSiID, b.HoTen, c.TenChuyenKhoa, b.MoTa, b.SoDienThoai, 
-                   CASE WHEN b.TrangThai = 1 THEN N'Đang hoạt động' ELSE N'Ngừng hoạt động' END AS TrangThai 
-                   FROM BacSi b JOIN ChuyenKhoa c ON b.ChuyenKhoaID = c.ChuyenKhoaID";
-
+            string sql = @"SELECT b.BacSiID, b.HoTen, c.TenChuyenKhoa, b.MoTa, b.SoDienThoai,
+                        CASE WHEN b.TrangThai = 1 THEN N'Đang hoạt động' ELSE N'Ngừng hoạt động' END AS TrangThai
+                        FROM BacSi b LEFT JOIN ChuyenKhoa c ON b.ChuyenKhoaID = c.ChuyenKhoaID";
             DataTable dt = db.readdata(sql);
             if (dt != null)
             {
-
                 dtgDanhsachbacsi.DataSource = dt;
             }
         }
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void Formqlybacsi_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnLuu_Click(object sender, EventArgs e)
         {
-
             string Hoten = txtHoten.Text;
             string Chuyenkhoa = cboChuyenkhoa.SelectedValue.ToString();
             string Mota = txtMota.Text;
             string Sdt = txtSdt.Text;
             string Trangthai = cboTrangthai.SelectedIndex.ToString();
-
             if (Hoten != "")
             {
                 string sql = $@"INSERT INTO BacSi (HoTen, ChuyenKhoaID, MoTa, SoDienThoai, TrangThai)
-                            VALUES (N'{Hoten}', {Chuyenkhoa}, N'{Mota}', N'{Sdt}',{Trangthai})";
+                VALUES (N'{Hoten}', {Chuyenkhoa}, N'{Mota}', N'{Sdt}',{Trangthai})";
                 int roweffect = db.writedata(sql);
                 if (roweffect > 0)
                 {
@@ -87,7 +75,6 @@ namespace phongkham1
             btnXoa.Enabled = true;
             btnThem.Enabled = true;
         }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             // Xóa trắng các ô để nhập mới
@@ -113,31 +100,25 @@ namespace phongkham1
                 // Lấy Mã bác sĩ từ cột đầu tiên (hoặc tên cột tương ứng trong CSDL của bạn, ví dụ: BacSiID)
                 // Lưu ý: Đảm bảo tên cột trong Cells đúng với tên cột bạn SELECT lên DataGridView
                 string maBacSi = dtgDanhsachbacsi.CurrentRow.Cells[0].Value.ToString();
-
                 // 2. Tạo hộp thoại hỏi xác nhận trước khi xóa để tránh xóa nhầm
                 DialogResult dialogResult = MessageBox.Show(
-                    "Bạn có chắc chắn muốn xóa bác sĩ này không?",
-                    "Xác nhận xóa",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning
+                "Bạn có chắc chắn muốn xóa bác sĩ này không?",
+                "Xác nhận xóa",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
                 );
-
                 if (dialogResult == DialogResult.Yes)
                 {
                     // 3. Câu lệnh SQL để xóa
                     string sql = $"DELETE FROM BacSi WHERE BacSiID = '{maBacSi}'";
-
                     // 4. Thực thi câu lệnh qua hàm writedata của bạn
                     int roweffect = db.writedata(sql);
-
                     if (roweffect > 0)
                     {
                         MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Load lại danh sách bác sĩ trên bảng
+                       // Load lại danh sách bác sĩ trên bảng
                         LoaddtgDanhsachbacsi();
-
-                        // Xóa trắng các ô nhập liệu (nếu cần)
+                       // Xóa trắng các ô nhập liệu (nếu cần)
                         txtMabs.Clear();
                         txtHoten.Clear();
                         txtMota.Clear();
@@ -157,13 +138,13 @@ namespace phongkham1
 
         private void dtgDanhsachbacsi_MouseClick(object sender, MouseEventArgs e)
         {
-            //Lấy dữ liệu của row mà chúng ta click => đổ vảo textBox
-            txtMabs.Text = dtgDanhsachbacsi.CurrentRow.Cells[0].Value.ToString();
-            txtHoten.Text = dtgDanhsachbacsi.CurrentRow.Cells[1].Value.ToString();
-            cboChuyenkhoa.Text = dtgDanhsachbacsi.CurrentRow.Cells[2].Value.ToString();
-            txtMota.Text = dtgDanhsachbacsi.CurrentRow.Cells[3].Value.ToString();
-            txtSdt.Text = dtgDanhsachbacsi.CurrentRow.Cells[4].Value.ToString();
-            cboTrangthai.Text = dtgDanhsachbacsi.CurrentRow.Cells[5].Value.ToString();
+                //Lấy dữ liệu của row mà chúng ta click => đổ vảo textBox
+                txtMabs.Text = dtgDanhsachbacsi.CurrentRow.Cells[0].Value.ToString();
+                txtHoten.Text = dtgDanhsachbacsi.CurrentRow.Cells[1].Value.ToString();
+                cboChuyenkhoa.Text = dtgDanhsachbacsi.CurrentRow.Cells[2].Value.ToString();
+                txtMota.Text = dtgDanhsachbacsi.CurrentRow.Cells[3].Value.ToString();
+                txtSdt.Text = dtgDanhsachbacsi.CurrentRow.Cells[4].Value.ToString();
+                cboTrangthai.Text = dtgDanhsachbacsi.CurrentRow.Cells[5].Value.ToString();
         }
 
         private void btnSua_Click(object sender, EventArgs e)
@@ -175,29 +156,19 @@ namespace phongkham1
             string mota = txtMota.Text.Trim();
             string sdt = txtSdt.Text.Trim();
             string trangthai = cboTrangthai.SelectedIndex.ToString();
-
             // 2. Kiểm tra xem đã chọn mã bác sĩ chưa (đảm bảo không bị trống khóa chính)
             if (mabs != "")
             {
                 // 3. Câu lệnh SQL UPDATE sử dụng cú pháp Chuỗi nội suy ($@"...") tương tự như lúc Thêm
-                string sql = $@"UPDATE BacSi 
-                       SET HoTen = N'{hoten}', 
-                           ChuyenKhoaID = '{chuyenkhoa}', 
-                           MoTa = N'{mota}', 
-                           SoDienThoai = '{sdt}', 
-                           TrangThai = '{trangthai}' 
-                       WHERE BacSiID = '{mabs}'";
-
+                string sql = $@"UPDATE BacSi SET HoTen = N'{hoten}',ChuyenKhoaID = '{chuyenkhoa}',MoTa = N'{mota}',SoDienThoai = '{sdt}',TrangThai = '{trangthai}'
+                             WHERE BacSiID = '{mabs}'";
                 // 4. Thực thi câu lệnh qua hàm writedata của bạn
                 int roweffect = db.writedata(sql);
-
                 if (roweffect > 0)
                 {
                     MessageBox.Show("Cập nhật thông tin bác sĩ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     // Load lại danh sách lên DataGridView
                     LoaddtgDanhsachbacsi();
-
                     // Reset lại trạng thái các nút và ô nhập liệu
                     txtMabs.Clear();
                     txtHoten.Clear();

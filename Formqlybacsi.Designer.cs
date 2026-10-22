@@ -288,7 +288,7 @@
             label10.Size = new Size(82, 32);
             label10.TabIndex = 9;
             label10.Text = "Mô tả:";
-            label10.Click += label10_Click;
+
             // 
             // label9
             // 
@@ -472,7 +472,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Formqlybacsi";
             Text = "Form1";
-            Load += Formqlybacsi_Load;
+
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
