@@ -3,7 +3,7 @@ using System.Drawing.Text;
 
 namespace phongkham1
 {
-    public partial class Form1 : Form
+    public partial class  Form1 : Form
     {
 
         public Form1()

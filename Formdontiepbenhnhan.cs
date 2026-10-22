@@ -73,7 +73,7 @@ namespace phongkham1
                 if (rowEffect > 0)
                 {
                     MessageBox.Show("Tiếp đón bệnh nhân thành công! Đã chuyển vào hàng đợi của Bác sĩ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadLichHenHomNay(txtTimKiem.Text.Trim()); 
+                    LoadLichHenHomNay(txtTimKiem.Text.Trim());
                 }
                 else
                 {
@@ -84,6 +84,11 @@ namespace phongkham1
             {
                 MessageBox.Show("Vui lòng chọn một lịch hẹn trên danh sách để check-in!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void dgvLichHen_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

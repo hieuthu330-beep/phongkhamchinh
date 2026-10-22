@@ -63,5 +63,20 @@ namespace phongkham1
                 // this.Hide();
             }
         }
+
+        private void btn_Lichhen_Click(object sender, EventArgs e)
+        {
+            loadAdmin(new Formquanlylichhenadmin());
+        }
+
+        private void btn_Baocao_Click(object sender, EventArgs e)
+        {
+            loadAdmin(new FormBaoCao());
+        }
+
+        private void btn_Bacsi_Click(object sender, EventArgs e)
+        {
+            loadAdmin(new Formqlybacsi());
+        }
     }
 }

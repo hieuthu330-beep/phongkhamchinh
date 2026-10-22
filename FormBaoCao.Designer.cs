@@ -45,27 +45,27 @@
             // dtpTuNgay
             // 
             dtpTuNgay.Format = DateTimePickerFormat.Short;
-            dtpTuNgay.Location = new Point(230, 108);
+            dtpTuNgay.Location = new Point(201, 92);
             dtpTuNgay.Name = "dtpTuNgay";
-            dtpTuNgay.Size = new Size(250, 27);
+            dtpTuNgay.Size = new Size(219, 25);
             dtpTuNgay.TabIndex = 0;
             // 
             // dtpDenNgay
             // 
             dtpDenNgay.Format = DateTimePickerFormat.Short;
-            dtpDenNgay.Location = new Point(571, 108);
+            dtpDenNgay.Location = new Point(500, 92);
             dtpDenNgay.Name = "dtpDenNgay";
-            dtpDenNgay.Size = new Size(250, 27);
+            dtpDenNgay.Size = new Size(219, 25);
             dtpDenNgay.TabIndex = 1;
             // 
             // dgvThongKe
             // 
             dgvThongKe.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvThongKe.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7 });
-            dgvThongKe.Location = new Point(230, 246);
+            dgvThongKe.Location = new Point(201, 209);
             dgvThongKe.Name = "dgvThongKe";
             dgvThongKe.RowHeadersWidth = 51;
-            dgvThongKe.Size = new Size(946, 300);
+            dgvThongKe.Size = new Size(828, 255);
             dgvThongKe.TabIndex = 2;
             // 
             // Column1
@@ -133,9 +133,9 @@
             // 
             // btnXemThongKe
             // 
-            btnXemThongKe.Location = new Point(990, 108);
+            btnXemThongKe.Location = new Point(866, 92);
             btnXemThongKe.Name = "btnXemThongKe";
-            btnXemThongKe.Size = new Size(169, 29);
+            btnXemThongKe.Size = new Size(148, 25);
             btnXemThongKe.TabIndex = 3;
             btnXemThongKe.Text = "Xem thống kê";
             btnXemThongKe.UseVisualStyleBackColor = true;
@@ -143,13 +143,14 @@
             // 
             // FormBaoCao
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1294, 629);
+            ClientSize = new Size(1659, 1018);
             Controls.Add(btnXemThongKe);
             Controls.Add(dgvThongKe);
             Controls.Add(dtpDenNgay);
             Controls.Add(dtpTuNgay);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FormBaoCao";
             Text = "FormBaoCao";
             Load += FormBaoCao_Load;

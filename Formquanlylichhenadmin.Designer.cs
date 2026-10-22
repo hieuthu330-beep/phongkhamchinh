@@ -63,10 +63,10 @@
             // 
             dgvLichHen.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLichHen.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column9, Column5, Column6, Column7, Column8 });
-            dgvLichHen.Location = new Point(285, 602);
+            dgvLichHen.Location = new Point(249, 512);
             dgvLichHen.Name = "dgvLichHen";
             dgvLichHen.RowHeadersWidth = 51;
-            dgvLichHen.Size = new Size(1179, 298);
+            dgvLichHen.Size = new Size(1032, 253);
             dgvLichHen.TabIndex = 0;
             dgvLichHen.CellClick += dgvLichHen_CellClick;
             // 
@@ -153,17 +153,17 @@
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(970, 531);
+            txtTimKiem.Location = new Point(849, 451);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.PlaceholderText = "Nhập tên bệnh nhân";
-            txtTimKiem.Size = new Size(284, 27);
+            txtTimKiem.Size = new Size(249, 25);
             txtTimKiem.TabIndex = 1;
             // 
             // btnLamMoi
             // 
-            btnLamMoi.Location = new Point(1384, 533);
+            btnLamMoi.Location = new Point(1211, 453);
             btnLamMoi.Name = "btnLamMoi";
-            btnLamMoi.Size = new Size(94, 29);
+            btnLamMoi.Size = new Size(82, 25);
             btnLamMoi.TabIndex = 2;
             btnLamMoi.Text = "Làm mới";
             btnLamMoi.UseVisualStyleBackColor = true;
@@ -172,138 +172,138 @@
             // cboTrangThaiFilter
             // 
             cboTrangThaiFilter.FormattingEnabled = true;
-            cboTrangThaiFilter.Location = new Point(256, 531);
+            cboTrangThaiFilter.Location = new Point(224, 451);
             cboTrangThaiFilter.Name = "cboTrangThaiFilter";
-            cboTrangThaiFilter.Size = new Size(151, 28);
+            cboTrangThaiFilter.Size = new Size(133, 25);
             cboTrangThaiFilter.TabIndex = 3;
             // 
             // dtpNgayKhamFilter
             // 
             dtpNgayKhamFilter.Format = DateTimePickerFormat.Short;
-            dtpNgayKhamFilter.Location = new Point(550, 532);
+            dtpNgayKhamFilter.Location = new Point(481, 452);
             dtpNgayKhamFilter.Name = "dtpNgayKhamFilter";
-            dtpNgayKhamFilter.Size = new Size(250, 27);
+            dtpNgayKhamFilter.Size = new Size(219, 25);
             dtpNgayKhamFilter.TabIndex = 4;
             // 
             // txtMaLichHen
             // 
-            txtMaLichHen.Location = new Point(305, 47);
+            txtMaLichHen.Location = new Point(267, 40);
             txtMaLichHen.Name = "txtMaLichHen";
             txtMaLichHen.ReadOnly = true;
-            txtMaLichHen.Size = new Size(230, 27);
+            txtMaLichHen.Size = new Size(202, 25);
             txtMaLichHen.TabIndex = 5;
             // 
             // txtTenBenhNhan
             // 
-            txtTenBenhNhan.Location = new Point(891, 47);
+            txtTenBenhNhan.Location = new Point(780, 40);
             txtTenBenhNhan.Name = "txtTenBenhNhan";
-            txtTenBenhNhan.Size = new Size(284, 27);
+            txtTenBenhNhan.Size = new Size(249, 25);
             txtTenBenhNhan.TabIndex = 6;
             // 
             // txtSoDienThoai
             // 
-            txtSoDienThoai.Location = new Point(1365, 54);
+            txtSoDienThoai.Location = new Point(1194, 46);
             txtSoDienThoai.Name = "txtSoDienThoai";
-            txtSoDienThoai.Size = new Size(125, 27);
+            txtSoDienThoai.Size = new Size(110, 25);
             txtSoDienThoai.TabIndex = 7;
             // 
             // txtChuyenKhoa
             // 
-            txtChuyenKhoa.Location = new Point(305, 151);
+            txtChuyenKhoa.Location = new Point(267, 128);
             txtChuyenKhoa.Name = "txtChuyenKhoa";
-            txtChuyenKhoa.Size = new Size(230, 27);
+            txtChuyenKhoa.Size = new Size(202, 25);
             txtChuyenKhoa.TabIndex = 8;
             // 
             // txtBacSi
             // 
-            txtBacSi.Location = new Point(305, 256);
+            txtBacSi.Location = new Point(267, 218);
             txtBacSi.Name = "txtBacSi";
-            txtBacSi.Size = new Size(230, 27);
+            txtBacSi.Size = new Size(202, 25);
             txtBacSi.TabIndex = 9;
             // 
             // txtTrieuchung
             // 
-            txtTrieuchung.Location = new Point(891, 151);
+            txtTrieuchung.Location = new Point(780, 128);
             txtTrieuchung.Multiline = true;
             txtTrieuchung.Name = "txtTrieuchung";
-            txtTrieuchung.Size = new Size(503, 166);
+            txtTrieuchung.Size = new Size(441, 142);
             txtTrieuchung.TabIndex = 10;
             // 
             // txtTrangThai
             // 
-            txtTrangThai.Location = new Point(303, 347);
+            txtTrangThai.Location = new Point(265, 295);
             txtTrangThai.Name = "txtTrangThai";
-            txtTrangThai.Size = new Size(232, 27);
+            txtTrangThai.Size = new Size(204, 25);
             txtTrangThai.TabIndex = 11;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(191, 54);
+            label1.Location = new Point(167, 46);
             label1.Name = "label1";
-            label1.Size = new Size(88, 20);
+            label1.Size = new Size(78, 17);
             label1.TabIndex = 12;
             label1.Text = "Mã lịch hẹn:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(735, 57);
+            label2.Location = new Point(643, 48);
             label2.Name = "label2";
-            label2.Size = new Size(108, 20);
+            label2.Size = new Size(96, 17);
             label2.TabIndex = 12;
             label2.Text = "Tên bệnh nhân:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(1283, 61);
+            label3.Location = new Point(1123, 52);
             label3.Name = "label3";
-            label3.Size = new Size(38, 20);
+            label3.Size = new Size(33, 17);
             label3.TabIndex = 12;
             label3.Text = "SDT:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(191, 158);
+            label4.Location = new Point(167, 134);
             label4.Name = "label4";
-            label4.Size = new Size(96, 20);
+            label4.Size = new Size(85, 17);
             label4.TabIndex = 12;
             label4.Text = "Chuyên khoa:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(191, 263);
+            label5.Location = new Point(167, 224);
             label5.Name = "label5";
-            label5.Size = new Size(50, 20);
+            label5.Size = new Size(44, 17);
             label5.TabIndex = 12;
             label5.Text = "Bác sĩ:";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(735, 158);
+            label6.Location = new Point(643, 134);
             label6.Name = "label6";
-            label6.Size = new Size(89, 20);
+            label6.Size = new Size(79, 17);
             label6.TabIndex = 12;
             label6.Text = "Triệu chứng:";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(191, 350);
+            label7.Location = new Point(167, 298);
             label7.Name = "label7";
-            label7.Size = new Size(78, 20);
+            label7.Size = new Size(69, 17);
             label7.TabIndex = 12;
             label7.Text = "Trạng thái:";
             // 
             // Formquanlylichhenadmin
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1657, 1012);
+            ClientSize = new Size(1659, 1018);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -323,6 +323,7 @@
             Controls.Add(btnLamMoi);
             Controls.Add(txtTimKiem);
             Controls.Add(dgvLichHen);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Formquanlylichhenadmin";
             Text = "Formquanlylichhenadmin";
             ((System.ComponentModel.ISupportInitialize)dgvLichHen).EndInit();

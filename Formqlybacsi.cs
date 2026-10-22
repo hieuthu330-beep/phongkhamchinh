@@ -11,6 +11,7 @@ namespace phongkham1
     public partial class Formqlybacsi : Form
     {
         ConnectDB db = new ConnectDB();
+
         public Formqlybacsi()
         {
             InitializeComponent();
@@ -18,105 +19,181 @@ namespace phongkham1
             LoaddtgDanhsachbacsi();
         }
 
-
         private void LoadChuyenkhoa()
         {
-            string sql = "SELECT ChuyenKhoaID ,TenChuyenKhoa FROM ChuyenKhoa";
+            string sql = "SELECT ChuyenKhoaID, TenChuyenKhoa FROM ChuyenKhoa";
             DataTable dt = db.readdata(sql);
             if (dt != null)
             {
                 cboChuyenkhoa.DataSource = dt;
                 cboChuyenkhoa.DisplayMember = "TenChuyenKhoa";
                 cboChuyenkhoa.ValueMember = "ChuyenKhoaID";
+                cboChuyenkhoa.SelectedIndex = -1;
             }
         }
 
         private void LoaddtgDanhsachbacsi()
         {
-            string sql = @"SELECT b.BacSiID, b.HoTen, c.TenChuyenKhoa, b.MoTa, b.SoDienThoai, 
+            string sql = @"SELECT b.BacSiID, b.HoTen, c.TenChuyenKhoa, b.MoTa, b.SoDienThoai, b.TaiKhoanID, 
                    CASE WHEN b.TrangThai = 1 THEN N'Đang hoạt động' ELSE N'Ngừng hoạt động' END AS TrangThai 
                    FROM BacSi b JOIN ChuyenKhoa c ON b.ChuyenKhoaID = c.ChuyenKhoaID";
 
             DataTable dt = db.readdata(sql);
             if (dt != null)
             {
-
                 dtgDanhsachbacsi.DataSource = dt;
             }
         }
-        private void label10_Click(object sender, EventArgs e)
-        {
 
+        private void cleardata()
+        {
+            txtMabs.Text = "";
+            txtHoten.Text = "";
+            cboChuyenkhoa.SelectedIndex = -1;
+            txtMota.Text = "";
+            txtSdt.Text = "";
+            cboTrangthai.SelectedIndex = -1;
+            // Nếu trên form có ô chứa mã tài khoản ẩn hoặc hiện, em clear luôn ở đây:
+            // txtMataikhoan.Text = ""; 
         }
+
         private void Formqlybacsi_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-
-            string Hoten = txtHoten.Text;
-            string Chuyenkhoa = cboChuyenkhoa.SelectedValue.ToString();
-            string Mota = txtMota.Text;
-            string Sdt = txtSdt.Text;
-            string Trangthai = cboTrangthai.SelectedIndex.ToString();
-
-            if (Hoten != "")
-            {
-                string sql = $@"INSERT INTO BacSi (HoTen, ChuyenKhoaID, MoTa, SoDienThoai, TrangThai)
-                            VALUES (N'{Hoten}', {Chuyenkhoa}, N'{Mota}', N'{Sdt}',{Trangthai})";
-                int roweffect = db.writedata(sql);
-                if (roweffect > 0)
-                {
-                    MessageBox.Show("Thêm dữ liệu thành công");
-                    LoaddtgDanhsachbacsi();
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi xảy ra");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng nhập Mã bác sĩ và Họ tên!", "Cảnh báo");
-            }
             LoaddtgDanhsachbacsi();
-            btnLuu.Enabled = false;
-            btnSua.Enabled = true;
-            btnXoa.Enabled = true;
-            btnThem.Enabled = true;
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            // Xóa trắng các ô để nhập mới
-            txtMabs.Clear();
-            txtHoten.Clear();
-            txtMota.Clear();
-            txtSdt.Clear();
-
-            // Khóa/mở các nút theo ý bạn
+            cleardata();
+            btnLuu.Enabled = true;
             btnThem.Enabled = false;
-            btnLuu.Enabled = true;   // Lúc này nút Lưu mới sáng lên
-            btnSua.Enabled = false;
             btnXoa.Enabled = false;
-
-            // Nhảy con trỏ chuột về ô Mã bác sĩ
+            btnSua.Enabled = false;
             txtHoten.Focus();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            string hoten = txtHoten.Text.Trim();
+            if (cboChuyenkhoa.SelectedValue == null)
+            {
+                MessageBox.Show("Vui lòng chọn chuyên khoa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            string chuyenkhoaID = cboChuyenkhoa.SelectedValue.ToString();
+            string mota = txtMota.Text.Trim();
+            string sdt = txtSdt.Text.Trim();
+
+            // Lấy trạng thái từ ComboBox (hoặc mặc định là 1 nếu chưa chọn)
+            int trangThai = (cboTrangthai.Text == "Đang hoạt động" || cboTrangthai.SelectedIndex == 0) ? 1 : 0;
+
+            if (string.IsNullOrEmpty(hoten) || string.IsNullOrEmpty(sdt))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ Họ tên và Số điện thoại!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // BƯỚC 1: Tự động tạo tài khoản đăng nhập cho Bác sĩ trong bảng TaiKhoan
+            string sqlTaoTK = $@"INSERT INTO TaiKhoan (HoTen, TenDangNhap, MatKhauHash, SoDienThoai, VaiTro) 
+                                VALUES (N'{hoten}', '{sdt}', '123456', '{sdt}', N'BacSi'); 
+                                SELECT IDENT_CURRENT('TaiKhoan') AS TaiKhoanID;";
+
+            DataTable dtTK = db.readdata(sqlTaoTK);
+
+            if (dtTK == null || dtTK.Rows.Count == 0)
+            {
+                MessageBox.Show("Tạo tài khoản thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string taiKhoanID = dtTK.Rows[0]["TaiKhoanID"].ToString();
+
+            // BƯỚC 2: Xử lý Mô tả (nếu trống thì lưu NULL)
+            string motaSQL = string.IsNullOrEmpty(mota) ? "NULL" : "N'" + mota + "'";
+
+            // BƯỚC 3: Thêm Bác sĩ mới gắn kèm TaiKhoanID vừa tạo
+            string sql = $@"INSERT INTO BacSi (HoTen, ChuyenKhoaID, MoTa, SoDienThoai, TrangThai, TaiKhoanID)
+                            VALUES (N'{hoten}', {chuyenkhoaID}, {motaSQL}, '{sdt}', {trangThai}, {taiKhoanID})";
+
+            int roweffect = db.writedata(sql);
+            if (roweffect > 0)
+            {
+                MessageBox.Show("Thêm bác sĩ và tạo tài khoản thành công!\n(Tài khoản: " + sdt + " / MK: 123456)", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoaddtgDanhsachbacsi();
+                cleardata();
+
+                // Khôi phục trạng thái nút bấm
+                btnLuu.Enabled = false;
+                btnThem.Enabled = true;
+                btnSua.Enabled = true;
+                btnXoa.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Thêm bác sĩ thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+            string mabs = txtMabs.Text.Trim();
+            string hoten = txtHoten.Text.Trim();
+            string chuyenkhoaID = cboChuyenkhoa.SelectedValue?.ToString() ?? "";
+            string mota = txtMota.Text.Trim();
+            string sdt = txtSdt.Text.Trim();
+            int trangThai = (cboTrangthai.Text == "Đang hoạt động") ? 1 : 0;
+
+            if (string.IsNullOrEmpty(mabs))
+            {
+                MessageBox.Show("Vui lòng chọn bác sĩ cần sửa từ danh sách bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(hoten) || string.IsNullOrEmpty(sdt))
+            {
+                MessageBox.Show("Họ tên và Số điện thoại không được để trống!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            string motaSQL = string.IsNullOrEmpty(mota) ? "NULL" : "N'" + mota + "'";
+
+            string sql = $@"UPDATE BacSi 
+                       SET HoTen = N'{hoten}', 
+                           ChuyenKhoaID = {chuyenkhoaID}, 
+                           MoTa = {motaSQL}, 
+                           SoDienThoai = '{sdt}', 
+                           TrangThai = {trangThai} 
+                       WHERE BacSiID = '{mabs}'";
+
+            int roweffect = db.writedata(sql);
+
+            if (roweffect > 0)
+            {
+                MessageBox.Show("Cập nhật thông tin bác sĩ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoaddtgDanhsachbacsi();
+                cleardata();
+            }
+            else
+            {
+                MessageBox.Show("Có lỗi xảy ra, không thể cập nhật dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (dtgDanhsachbacsi.CurrentRow != null)
+            if (dtgDanhsachbacsi.CurrentRow != null && !string.IsNullOrEmpty(txtMabs.Text))
             {
-                // Lấy Mã bác sĩ từ cột đầu tiên (hoặc tên cột tương ứng trong CSDL của bạn, ví dụ: BacSiID)
-                // Lưu ý: Đảm bảo tên cột trong Cells đúng với tên cột bạn SELECT lên DataGridView
-                string maBacSi = dtgDanhsachbacsi.CurrentRow.Cells[0].Value.ToString();
+                string maBacSi = txtMabs.Text.Trim();
 
-                // 2. Tạo hộp thoại hỏi xác nhận trước khi xóa để tránh xóa nhầm
+                // Lấy mã tài khoản từ cột thứ 5 (hoặc cell tương ứng chứa TaiKhoanID trên DataGridView)
+                string maTK = "";
+                if (dtgDanhsachbacsi.CurrentRow.Cells.Count > 5 && dtgDanhsachbacsi.CurrentRow.Cells[5].Value != null)
+                {
+                    maTK = dtgDanhsachbacsi.CurrentRow.Cells[5].Value.ToString();
+                }
+
                 DialogResult dialogResult = MessageBox.Show(
-                    "Bạn có chắc chắn muốn xóa bác sĩ này không?",
+                    "Bạn có chắc chắn muốn xóa bác sĩ và tài khoản liên kết không?",
                     "Xác nhận xóa",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
@@ -124,28 +201,26 @@ namespace phongkham1
 
                 if (dialogResult == DialogResult.Yes)
                 {
-                    // 3. Câu lệnh SQL để xóa
-                    string sql = $"DELETE FROM BacSi WHERE BacSiID = '{maBacSi}'";
-
-                    // 4. Thực thi câu lệnh qua hàm writedata của bạn
-                    int roweffect = db.writedata(sql);
+                    // Xóa Bác sĩ trước (vì chứa khóa ngoại trỏ sang TaiKhoan)
+                    string sqlXoaBS = $"DELETE FROM BacSi WHERE BacSiID = '{maBacSi}'";
+                    int roweffect = db.writedata(sqlXoaBS);
 
                     if (roweffect > 0)
                     {
-                        MessageBox.Show("Xóa dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Xóa luôn tài khoản tương ứng trong bảng TaiKhoan nếu có
+                        if (!string.IsNullOrEmpty(maTK))
+                        {
+                            string sqlXoaTK = $"DELETE FROM TaiKhoan WHERE TaiKhoanID = {maTK}";
+                            db.writedata(sqlXoaTK);
+                        }
 
-                        // Load lại danh sách bác sĩ trên bảng
+                        MessageBox.Show("Xóa bác sĩ và tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoaddtgDanhsachbacsi();
-
-                        // Xóa trắng các ô nhập liệu (nếu cần)
-                        txtMabs.Clear();
-                        txtHoten.Clear();
-                        txtMota.Clear();
-                        txtSdt.Clear();
+                        cleardata();
                     }
                     else
                     {
-                        MessageBox.Show("Có lỗi xảy ra, không thể xóa dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Xóa thất bại! Bác sĩ này có thể đang liên kết với lịch khám hoặc dữ liệu khác.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -155,78 +230,37 @@ namespace phongkham1
             }
         }
 
-        private void dtgDanhsachbacsi_MouseClick(object sender, MouseEventArgs e)
+        // Đổi từ MouseClick sang CellMouseClick để chuẩn xác và tránh lỗi vùng trống
+        private void dtgDanhsachbacsi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //Lấy dữ liệu của row mà chúng ta click => đổ vảo textBox
-            txtMabs.Text = dtgDanhsachbacsi.CurrentRow.Cells[0].Value.ToString();
-            txtHoten.Text = dtgDanhsachbacsi.CurrentRow.Cells[1].Value.ToString();
-            cboChuyenkhoa.Text = dtgDanhsachbacsi.CurrentRow.Cells[2].Value.ToString();
-            txtMota.Text = dtgDanhsachbacsi.CurrentRow.Cells[3].Value.ToString();
-            txtSdt.Text = dtgDanhsachbacsi.CurrentRow.Cells[4].Value.ToString();
-            cboTrangthai.Text = dtgDanhsachbacsi.CurrentRow.Cells[5].Value.ToString();
-        }
-
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-            // 1. Lấy dữ liệu từ các ô nhập liệu trên giao diện
-            string mabs = txtMabs.Text.Trim();
-            string hoten = txtHoten.Text.Trim();
-            string chuyenkhoa = cboChuyenkhoa.SelectedValue?.ToString() ?? "";
-            string mota = txtMota.Text.Trim();
-            string sdt = txtSdt.Text.Trim();
-            string trangthai = cboTrangthai.SelectedIndex.ToString();
-
-            // 2. Kiểm tra xem đã chọn mã bác sĩ chưa (đảm bảo không bị trống khóa chính)
-            if (mabs != "")
+            if (e.RowIndex >= 0)
             {
-                // 3. Câu lệnh SQL UPDATE sử dụng cú pháp Chuỗi nội suy ($@"...") tương tự như lúc Thêm
-                string sql = $@"UPDATE BacSi 
-                       SET HoTen = N'{hoten}', 
-                           ChuyenKhoaID = '{chuyenkhoa}', 
-                           MoTa = N'{mota}', 
-                           SoDienThoai = '{sdt}', 
-                           TrangThai = '{trangthai}' 
-                       WHERE BacSiID = '{mabs}'";
+                DataGridViewRow row = dtgDanhsachbacsi.Rows[e.RowIndex];
 
-                // 4. Thực thi câu lệnh qua hàm writedata của bạn
-                int roweffect = db.writedata(sql);
+                txtMabs.Text = row.Cells[0].Value?.ToString() ?? "";
+                txtHoten.Text = row.Cells[1].Value?.ToString() ?? "";
+                cboChuyenkhoa.Text = row.Cells[2].Value?.ToString() ?? "";
+                txtMota.Text = row.Cells[3].Value?.ToString() ?? "";
+                txtSdt.Text = row.Cells[4].Value?.ToString() ?? "";
 
-                if (roweffect > 0)
+                // Nếu cột 5 là TaiKhoanID, cột 6 là TrangThai (tùy theo thứ tự select của câu lệnh SQL ở hàm Load)
+                if (row.Cells.Count > 6)
                 {
-                    MessageBox.Show("Cập nhật thông tin bác sĩ thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    // Load lại danh sách lên DataGridView
-                    LoaddtgDanhsachbacsi();
-
-                    // Reset lại trạng thái các nút và ô nhập liệu
-                    txtMabs.Clear();
-                    txtHoten.Clear();
-                    txtMota.Clear();
-                    txtSdt.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Có lỗi xảy ra, không thể cập nhật dữ liệu.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    cboTrangthai.Text = row.Cells[6].Value?.ToString() ?? "";
                 }
             }
-            else
-            {
-                MessageBox.Show("Vوي lòng chọn bác sĩ cần sửa từ danh sách bảng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
         }
+
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            // Giả sử ô nhập từ khóa tìm kiếm của bạn tên là txtTim (hoặc bạn có thể thay bằng txtHoten, txtMabs tùy ý)
             string keyword = txtTimkiem.Text.Trim();
 
-            // Câu lệnh SQL tìm kiếm (có thể tìm theo Mã bác sĩ hoặc Họ tên bác sĩ chứa từ khóa)
-            string sql = $@"SELECT b.BacSiID, b.HoTen, c.TenChuyenKhoa, b.MoTa, b.SoDienThoai, 
+            string sql = $@"SELECT b.BacSiID, b.HoTen, c.TenChuyenKhoa, b.MoTa, b.SoDienThoai, b.TaiKhoanID, 
                    CASE WHEN b.TrangThai = 1 THEN N'Đang hoạt động' ELSE N'Ngừng hoạt động' END AS TrangThai 
                    FROM BacSi b 
                    JOIN ChuyenKhoa c ON b.ChuyenKhoaID = c.ChuyenKhoaID 
                    WHERE b.BacSiID LIKE N'%{keyword}%' OR b.HoTen LIKE N'%{keyword}%'";
 
-            // Gọi hàm đọc dữ liệu và đổ vào bảng
             DataTable dt = db.readdata(sql);
 
             if (dt != null)

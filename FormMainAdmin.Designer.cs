@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainAdmin));
             panel1 = new Panel();
+            btn_Lichhen = new Button();
             btn_Thuoc = new Button();
             btn_Nhanvien = new Button();
-            button5 = new Button();
+            btn_Baocao = new Button();
             btn_Chuyenkhoa = new Button();
-            button1 = new Button();
+            btn_Bacsi = new Button();
             label3 = new Label();
             panel4 = new Panel();
             btnDangxuat = new Button();
@@ -43,7 +44,6 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             pnlNoidung = new Panel();
-            button3 = new Button();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -53,12 +53,12 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(0, 78, 132);
-            panel1.Controls.Add(button3);
+            panel1.Controls.Add(btn_Lichhen);
             panel1.Controls.Add(btn_Thuoc);
             panel1.Controls.Add(btn_Nhanvien);
-            panel1.Controls.Add(button5);
+            panel1.Controls.Add(btn_Baocao);
             panel1.Controls.Add(btn_Chuyenkhoa);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btn_Bacsi);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
@@ -67,6 +67,25 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(249, 1018);
             panel1.TabIndex = 1;
+            // 
+            // btn_Lichhen
+            // 
+            btn_Lichhen.FlatAppearance.BorderColor = Color.FromArgb(0, 85, 143);
+            btn_Lichhen.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 85, 143);
+            btn_Lichhen.FlatStyle = FlatStyle.Flat;
+            btn_Lichhen.Font = new Font("Microsoft Sans Serif", 10.18868F, FontStyle.Bold);
+            btn_Lichhen.ForeColor = Color.White;
+            btn_Lichhen.Image = (Image)resources.GetObject("btn_Lichhen.Image");
+            btn_Lichhen.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_Lichhen.Location = new Point(15, 473);
+            btn_Lichhen.Name = "btn_Lichhen";
+            btn_Lichhen.RightToLeft = RightToLeft.No;
+            btn_Lichhen.Size = new Size(237, 58);
+            btn_Lichhen.TabIndex = 9;
+            btn_Lichhen.Text = "            Quản lý lịch hẹn";
+            btn_Lichhen.TextAlign = ContentAlignment.MiddleLeft;
+            btn_Lichhen.UseVisualStyleBackColor = true;
+            btn_Lichhen.Click += btn_Lichhen_Click;
             // 
             // btn_Thuoc
             // 
@@ -104,23 +123,24 @@
             btn_Nhanvien.UseVisualStyleBackColor = true;
             btn_Nhanvien.Click += btn_Nhanvien_Click;
             // 
-            // button5
+            // btn_Baocao
             // 
-            button5.BackgroundImageLayout = ImageLayout.Stretch;
-            button5.FlatAppearance.BorderColor = Color.FromArgb(0, 85, 143);
-            button5.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 85, 143);
-            button5.FlatStyle = FlatStyle.Flat;
-            button5.Font = new Font("Microsoft Sans Serif", 10.18868F, FontStyle.Bold);
-            button5.ForeColor = Color.White;
-            button5.Image = (Image)resources.GetObject("button5.Image");
-            button5.ImageAlign = ContentAlignment.MiddleLeft;
-            button5.Location = new Point(15, 152);
-            button5.Name = "button5";
-            button5.Size = new Size(234, 58);
-            button5.TabIndex = 6;
-            button5.Text = "            Quản lý phân quyền";
-            button5.TextAlign = ContentAlignment.MiddleLeft;
-            button5.UseVisualStyleBackColor = true;
+            btn_Baocao.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_Baocao.FlatAppearance.BorderColor = Color.FromArgb(0, 85, 143);
+            btn_Baocao.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 85, 143);
+            btn_Baocao.FlatStyle = FlatStyle.Flat;
+            btn_Baocao.Font = new Font("Microsoft Sans Serif", 10.18868F, FontStyle.Bold);
+            btn_Baocao.ForeColor = Color.White;
+            btn_Baocao.Image = (Image)resources.GetObject("btn_Baocao.Image");
+            btn_Baocao.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_Baocao.Location = new Point(15, 152);
+            btn_Baocao.Name = "btn_Baocao";
+            btn_Baocao.Size = new Size(234, 58);
+            btn_Baocao.TabIndex = 6;
+            btn_Baocao.Text = "            Báo cáo và thống kê";
+            btn_Baocao.TextAlign = ContentAlignment.MiddleLeft;
+            btn_Baocao.UseVisualStyleBackColor = true;
+            btn_Baocao.Click += btn_Baocao_Click;
             // 
             // btn_Chuyenkhoa
             // 
@@ -141,23 +161,24 @@
             btn_Chuyenkhoa.UseVisualStyleBackColor = true;
             btn_Chuyenkhoa.Click += btn_Chuyenkhoa_Click;
             // 
-            // button1
+            // btn_Bacsi
             // 
-            button1.FlatAppearance.BorderColor = Color.FromArgb(0, 85, 143);
-            button1.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 85, 143);
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Microsoft Sans Serif", 10.18868F, FontStyle.Bold);
-            button1.ForeColor = Color.White;
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(15, 217);
-            button1.Name = "button1";
-            button1.RightToLeft = RightToLeft.No;
-            button1.Size = new Size(234, 58);
-            button1.TabIndex = 3;
-            button1.Text = "            Quản lý bác sĩ";
-            button1.TextAlign = ContentAlignment.MiddleLeft;
-            button1.UseVisualStyleBackColor = true;
+            btn_Bacsi.FlatAppearance.BorderColor = Color.FromArgb(0, 85, 143);
+            btn_Bacsi.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 85, 143);
+            btn_Bacsi.FlatStyle = FlatStyle.Flat;
+            btn_Bacsi.Font = new Font("Microsoft Sans Serif", 10.18868F, FontStyle.Bold);
+            btn_Bacsi.ForeColor = Color.White;
+            btn_Bacsi.Image = (Image)resources.GetObject("btn_Bacsi.Image");
+            btn_Bacsi.ImageAlign = ContentAlignment.MiddleLeft;
+            btn_Bacsi.Location = new Point(15, 217);
+            btn_Bacsi.Name = "btn_Bacsi";
+            btn_Bacsi.RightToLeft = RightToLeft.No;
+            btn_Bacsi.Size = new Size(234, 58);
+            btn_Bacsi.TabIndex = 3;
+            btn_Bacsi.Text = "            Quản lý bác sĩ";
+            btn_Bacsi.TextAlign = ContentAlignment.MiddleLeft;
+            btn_Bacsi.UseVisualStyleBackColor = true;
+            btn_Bacsi.Click += btn_Bacsi_Click;
             // 
             // label3
             // 
@@ -251,24 +272,6 @@
             pnlNoidung.Size = new Size(1410, 1018);
             pnlNoidung.TabIndex = 2;
             // 
-            // button3
-            // 
-            button3.FlatAppearance.BorderColor = Color.FromArgb(0, 85, 143);
-            button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 85, 143);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Microsoft Sans Serif", 10.18868F, FontStyle.Bold);
-            button3.ForeColor = Color.White;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(15, 473);
-            button3.Name = "button3";
-            button3.RightToLeft = RightToLeft.No;
-            button3.Size = new Size(237, 58);
-            button3.TabIndex = 9;
-            button3.Text = "            Quản lý lịch hẹn";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = true;
-            // 
             // FormMainAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -292,9 +295,9 @@
         private Panel panel1;
         private Button btn_Thuoc;
         private Button btn_Nhanvien;
-        private Button button5;
+        private Button btn_Baocao;
         private Button btn_Chuyenkhoa;
-        private Button button1;
+        private Button btn_Bacsi;
         private Label label3;
         private Panel panel4;
         private Button btnDangxuat;
@@ -303,6 +306,6 @@
         private Label label1;
         private PictureBox pictureBox1;
         private Panel pnlNoidung;
-        private Button button3;
+        private Button btn_Lichhen;
     }
 }

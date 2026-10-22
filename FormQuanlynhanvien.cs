@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace phongkham1
 {
@@ -15,7 +16,9 @@ namespace phongkham1
             InitializeComponent();
             Loaddata();
         }
+
         ConnectDB ConnectDB = new ConnectDB();
+
         private void Loaddata()
         {
             string sql = "SELECT * FROM NhanVien";
@@ -29,17 +32,19 @@ namespace phongkham1
                 MessageBox.Show("Không có dữ liệu nhân viên để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
         private void FormQuanlynhanvien_Load(object sender, EventArgs e)
         {
             LoaddtgNhanvien();
         }
+
         private void LoaddtgNhanvien()
         {
-            string sql = @"SELECT NhanVienID, HoTen, SoDienThoai, ChucVu, MoTa, TaiKhoanID, 
-               CASE WHEN TrangThai = 0 THEN N'Đã nghỉ việc' 
-                    ELSE N'Đang làm việc' 
-               END AS TrangThai
-               FROM NhanVien";
+            string sql = @"SELECT NhanVienID, HoTen, SoDienThoai, ChucVu, MoTa, TaiKhoanID,  
+                           CASE WHEN TrangThai = 0 THEN N'Đã nghỉ việc'  
+                                ELSE N'Đang làm việc'  
+                           END AS TrangThai
+                           FROM NhanVien";
             DataTable dt = ConnectDB.readdata(sql);
             if (dt != null)
             {
@@ -56,6 +61,7 @@ namespace phongkham1
             cboTrangthai.SelectedIndex = -1;
             txtMataikhoan.Text = "";
         }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             btnLuu.Enabled = true;
@@ -63,78 +69,89 @@ namespace phongkham1
             btnXoa.Enabled = false;
             cleardata();
         }
+
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            // 1. Lấy thông tin từ các ô nhập trên form
-            string HoTen = txtHoten.Text;
-            string SoDienThoai = txtSodienthoai.Text;
-            string MoTa = txtMota.Text;
+            // 1. Lấy thông tin từ các ô nhập
+            string HoTen = txtHoten.Text.Trim();
+            string SoDienThoai = txtSodienthoai.Text.Trim();
+            string MoTa = txtMota.Text.Trim();
 
-            // 2. Kiểm tra thông tin bắt buộc
             if (string.IsNullOrEmpty(HoTen) || string.IsNullOrEmpty(SoDienThoai))
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ Họ tên và Số điện thoại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 3. Xử lý Mô tả (nếu để trống thì lưu NULL)
+            // --- BƯỚC 1: Thêm tài khoản mới bằng writedata (dùng lệnh INSERT thuần túy) ---
+            string sqlInsertTK = $@"INSERT INTO TaiKhoan (HoTen, TenDangNhap, MatKhauHash, SoDienThoai, VaiTro) 
+                        VALUES (N'{HoTen}', '{SoDienThoai}', '123456', '{SoDienThoai}', N'NhanVien')";
+
+            int ketQuaTK = ConnectDB.writedata(sqlInsertTK);
+            if (ketQuaTK <= 0)
+            {
+                MessageBox.Show("Tạo tài khoản thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // --- BƯỚC 2: Dùng readdata để SELECT lấy ra TaiKhoanID vừa tạo dựa vào Số điện thoại ---
+            string sqlLayID = $"SELECT TaiKhoanID FROM TaiKhoan WHERE SoDienThoai = '{SoDienThoai}'";
+            DataTable dtTK = ConnectDB.readdata(sqlLayID);
+
+            if (dtTK == null || dtTK.Rows.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy mã tài khoản vừa tạo!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Lấy được con số ID tài khoản
+            string taiKhoanID = dtTK.Rows[0]["TaiKhoanID"].ToString();
+
+            // --- BƯỚC 3: Dùng writedata để thêm nhân viên gắn kèm cái TaiKhoanID vừa lấy ---
             string moTaSQL = string.IsNullOrEmpty(MoTa) ? "NULL" : "N'" + MoTa + "'";
 
-            // 4. Viết câu lệnh SQL INSERT (Gán ngầm ChucVu mặc định là 'Nhân viên' để tránh lỗi CSDL)
-            string sql = "INSERT INTO NhanVien (HoTen, SoDienThoai, ChucVu, TrangThai, MoTa) VALUES (";
-            sql += "N'" + HoTen + "', ";
-            sql += "'" + SoDienThoai + "', ";
-            sql += "N'Nhân viên', "; // Gán giá trị mặc định vì cột ChucVu trong CSDL yêu cầu NOT NULL
-            sql += "1, ";            // Trạng thái mặc định là 1 (Đang làm việc)
-            sql += moTaSQL + ")";
+            string sqlInsertNV = $@"INSERT INTO NhanVien (HoTen, SoDienThoai, ChucVu, TrangThai, MoTa, TaiKhoanID) 
+                        VALUES (N'{HoTen}', '{SoDienThoai}', N'Nhan vien', 1, {moTaSQL}, {taiKhoanID})";
 
-            // 5. Thực thi câu lệnh
-            int result = ConnectDB.writedata(sql);
+            int ketQuaNV = ConnectDB.writedata(sqlInsertNV);
 
-            if (result > 0)
+            if (ketQuaNV > 0)
             {
-                MessageBox.Show("Thêm nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoaddtgNhanvien(); // Tải lại bảng dữ liệu
-                cleardata();       // Xóa trắng các ô nhập
+                MessageBox.Show("Thêm nhân viên và tạo tài khoản thành công!\n(Tài khoản: " + SoDienThoai + " / MK: 123456)", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoaddtgNhanvien();
+                cleardata();
                 btnLuu.Enabled = false;
                 btnThem.Enabled = true;
             }
             else
             {
-                MessageBox.Show("Thêm nhân viên thất bại! Vui lòng kiểm tra lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Thêm nhân viên thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra xem đã chọn nhân viên cần sửa chưa (dựa vào Mã nhân viên)
             if (string.IsNullOrEmpty(txtManhanvien.Text))
             {
                 MessageBox.Show("Vui lòng chọn nhân viên cần sửa từ bảng danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Lấy dữ liệu từ các ô nhập
             string maNV = txtManhanvien.Text;
             string hoTen = txtHoten.Text;
             string soDienThoai = txtSodienthoai.Text;
             string moTa = txtMota.Text;
 
-            // Chuyển trạng thái từ ComboBox thành số (1: Đang làm việc, 0: Đã nghỉ việc - tùy theo CSDL của bạn)
-            // Nếu cboTrangthai của bạn hiển thị chữ "Đang làm việc" / "Đã nghỉ việc":
             int trangThai = (cboTrangthai.Text == "Đang làm việc") ? 1 : 0;
 
-            // 3. Kiểm tra thông tin bắt buộc
             if (string.IsNullOrEmpty(hoTen) || string.IsNullOrEmpty(soDienThoai))
             {
                 MessageBox.Show("Họ tên và Số điện thoại không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 4. Xử lý Mô tả (nếu trống thì lưu NULL)
             string moTaSQL = string.IsNullOrEmpty(moTa) ? "NULL" : "N'" + moTa + "'";
 
-            // 5. Viết câu lệnh SQL UPDATE
             string sql = "UPDATE NhanVien SET ";
             sql += "HoTen = N'" + hoTen + "', ";
             sql += "SoDienThoai = '" + soDienThoai + "', ";
@@ -142,14 +159,13 @@ namespace phongkham1
             sql += "MoTa = " + moTaSQL + " ";
             sql += "WHERE NhanVienID = " + maNV;
 
-            // 6. Thực thi câu lệnh
             int result = ConnectDB.writedata(sql);
 
             if (result > 0)
             {
                 MessageBox.Show("Cập nhật thông tin nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LoaddtgNhanvien(); // Load lại bảng dữ liệu
-                cleardata();       // Xóa trắng form
+                LoaddtgNhanvien();
+                cleardata();
             }
             else
             {
@@ -159,34 +175,29 @@ namespace phongkham1
 
         private void dtgNhanvien_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            // e.RowIndex tự động kiểm tra dòng hợp lệ (>= 0), tránh lỗi khi click vào khoảng trống
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dtgNhanvien.Rows[e.RowIndex];
 
-                // Gán đúng thứ tự cột từ trái sang phải trên bảng Quản lý nhân viên:
-                txtManhanvien.Text = row.Cells[0].Value.ToString(); // Cột 0: Mã nhân viên
-                txtHoten.Text = row.Cells[1].Value.ToString();      // Cột 1: Họ và tên
-                txtSodienthoai.Text = row.Cells[2].Value.ToString(); // Cột 2: SĐT
-                                                                     // ChucVu (nếu có ô nhập chức vụ riêng thì gán vào đây)
-                txtMota.Text = row.Cells[4].Value.ToString();       // Cột 4: Mô tả
-                txtMataikhoan.Text = row.Cells[5].Value.ToString(); // Cột 5: Mã tài khoản
-                cboTrangthai.Text = row.Cells[6].Value.ToString();  // Cột 6: Trạng thái ("Đang làm việc" / "Đã nghỉ việc")
+                txtManhanvien.Text = row.Cells[0].Value.ToString();
+                txtHoten.Text = row.Cells[1].Value.ToString();
+                txtSodienthoai.Text = row.Cells[2].Value.ToString();
+                txtMota.Text = row.Cells[4].Value.ToString();
+                txtMataikhoan.Text = row.Cells[5].Value.ToString();
+                cboTrangthai.Text = row.Cells[6].Value.ToString();
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            // 1. Kiểm tra xem đã chọn nhân viên cần xóa chưa
             if (string.IsNullOrEmpty(txtManhanvien.Text))
             {
                 MessageBox.Show("Vui lòng chọn nhân viên cần xóa từ bảng danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // 2. Hiển thị hộp thoại xác nhận trước khi xóa
             DialogResult dialogResult = MessageBox.Show(
-                "Bạn có chắc chắn muốn xóa nhân viên có mã: " + txtManhanvien.Text + " không?",
+                "Bạn có chắc chắn muốn xóa nhân viên và tài khoản có mã: " + txtManhanvien.Text + " không?",
                 "Xác nhận xóa",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
@@ -194,19 +205,25 @@ namespace phongkham1
 
             if (dialogResult == DialogResult.Yes)
             {
-                string maNV = txtManhanvien.Text;
+                string maNV = txtManhanvien.Text.Trim();
+                string maTK = txtMataikhoan.Text.Trim();
 
-                // 3. Viết câu lệnh SQL DELETE
-                string sql = "DELETE FROM NhanVien WHERE NhanVienID = " + maNV;
-
-                // 4. Thực thi câu lệnh
-                int result = ConnectDB.writedata(sql);
+                // Xóa nhân viên trước (vì bảng NhanVien chứa khóa ngoại trỏ sang TaiKhoan)
+                string sqlXoaNV = "DELETE FROM NhanVien WHERE NhanVienID = " + maNV;
+                int result = ConnectDB.writedata(sqlXoaNV);
 
                 if (result > 0)
                 {
-                    MessageBox.Show("Xóa nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoaddtgNhanvien(); // Tải lại bảng dữ liệu
-                    cleardata();       // Xóa trắng form
+                    // Sau khi xóa nhân viên thành công thì xóa luôn dòng tài khoản tương ứng
+                    if (!string.IsNullOrEmpty(maTK))
+                    {
+                        string sqlXoaTK = "DELETE FROM TaiKhoan WHERE TaiKhoanID = " + maTK;
+                        ConnectDB.writedata(sqlXoaTK);
+                    }
+
+                    MessageBox.Show("Xóa nhân viên và tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoaddtgNhanvien();
+                    cleardata();
                 }
                 else
                 {
@@ -214,43 +231,33 @@ namespace phongkham1
                 }
             }
         }
+
         private void btnLammoi_Click(object sender, EventArgs e)
         {
-            // 1. Gọi lại hàm xóa trắng các ô nhập liệu
             cleardata();
-
-            // 2. Bỏ chọn dòng trên DataGridView (nếu đang chọn)
             dtgNhanvien.ClearSelection();
 
-            // 3. Đặt lại trạng thái bật/tắt cho các nút bấm theo ý muốn của em
-            // Ví dụ: Cho phép bấm Thêm, Sửa, Xóa nhưng tạm khóa nút Lưu cho đến khi bấm Thêm/Sửa
             btnThem.Enabled = true;
             btnSua.Enabled = true;
             btnXoa.Enabled = true;
             btnLuu.Enabled = false;
 
-            // 4. Load lại dữ liệu mới nhất từ CSDL lên bảng (tùy chọn)
             LoaddtgNhanvien();
         }
 
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            // 1. Lấy từ khóa người dùng nhập vào
             string tuKhoa = txtTimkiem.Text.Trim();
 
-            // 2. Viết câu lệnh SQL tìm kiếm (có thể tìm theo Mã nhân viên hoặc Họ tên)
-            // Nếu tuKhoa là số (Mã nhân viên) hoặc chữ (Họ tên), câu lệnh dưới đây sẽ lọc được cả hai
-            string sql = @"SELECT NhanVienID, HoTen, SoDienThoai, ChucVu, MoTa, TaiKhoanID, 
-               CASE WHEN TrangThai = 0 THEN N'Đã nghỉ việc' 
-                    ELSE N'Đang làm việc' 
-               END AS TrangThai
-               FROM NhanVien 
-               WHERE NhanVienID LIKE N'%" + tuKhoa + "%' OR HoTen LIKE N'%" + tuKhoa + "%'";
+            string sql = @"SELECT NhanVienID, HoTen, SoDienThoai, ChucVu, MoTa, TaiKhoanID,  
+                           CASE WHEN TrangThai = 0 THEN N'Đã nghỉ việc'  
+                                ELSE N'Đang làm việc'  
+                           END AS TrangThai
+                           FROM NhanVien  
+                           WHERE NhanVienID LIKE N'%" + tuKhoa + "%' OR HoTen LIKE N'%" + tuKhoa + "%'";
 
-            // 3. Thực thi câu lệnh và đổ dữ liệu vào DataTable
             DataTable dt = ConnectDB.readdata(sql);
 
-            // 4. Hiển thị kết quả lên DataGridView
             if (dt != null && dt.Rows.Count > 0)
             {
                 dtgNhanvien.DataSource = dt;
@@ -258,12 +265,7 @@ namespace phongkham1
             else
             {
                 MessageBox.Show("Không tìm thấy nhân viên nào phù hợp!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Nếu không tìm thấy, em có thể gọi lại LoaddtgNhanvien() để hiển thị toàn bộ danh sách cũ
-                // LoaddtgNhanvien();
             }
         }
-
-       
     }
 }
