@@ -12,7 +12,7 @@ namespace phongkham1
         private string connection;
         public ConnectDB()
         {
-            connection = "Data Source=DESKTOP-5DN4UA9\\SQLEXPRESS;Initial Catalog=PhongKhamDB;User ID=sa;Password=1906;Trust Server Certificate=True";
+            connection = "Data Source=.\\SQLEXPRESS;Initial Catalog=PhongKhamDB;User ID=sa;Password=123456;Trust Server Certificate=True";
         }
         public DataTable readdata(string sql)
         {

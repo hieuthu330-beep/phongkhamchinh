@@ -9,7 +9,7 @@ namespace phongkham1
         public Form1()
         {
             InitializeComponent();
-            
+
         }
         private void bamnutdangkyy(object sender, EventArgs e)
         {
@@ -80,7 +80,7 @@ namespace phongkham1
                     this.Hide();
 
                 }
-                else if(vaiTro == "Admin")
+                else if (vaiTro == "Admin")
                 {
                     FormMainAdmin frmadmin = new FormMainAdmin();
                     frmadmin.Show();
@@ -110,10 +110,10 @@ namespace phongkham1
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            FormDky dky= new FormDky();
-            
+            FormDky dky = new FormDky();
+
             dky.bamnutdangky += bamnutdangkyy;
             dky.Show();
             this.Hide();

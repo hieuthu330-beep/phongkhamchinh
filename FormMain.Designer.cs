@@ -57,8 +57,9 @@
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(6);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1684, 85);
+            panel1.Size = new Size(2564, 160);
             panel1.TabIndex = 0;
             // 
             // label80
@@ -66,9 +67,10 @@
             label80.AutoSize = true;
             label80.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label80.ForeColor = Color.FromArgb(0, 106, 97);
-            label80.Location = new Point(82, 44);
+            label80.Location = new Point(152, 83);
+            label80.Margin = new Padding(6, 0, 6, 0);
             label80.Name = "label80";
-            label80.Size = new Size(130, 19);
+            label80.Size = new Size(217, 32);
             label80.TabIndex = 10;
             label80.Text = "CLINIC & WELLNESS";
             // 
@@ -77,9 +79,10 @@
             button7.FlatAppearance.BorderSize = 0;
             button7.FlatStyle = FlatStyle.Flat;
             button7.Image = (Image)resources.GetObject("button7.Image");
-            button7.Location = new Point(1614, 20);
+            button7.Location = new Point(2997, 38);
+            button7.Margin = new Padding(6);
             button7.Name = "button7";
-            button7.Size = new Size(37, 34);
+            button7.Size = new Size(69, 64);
             button7.TabIndex = 9;
             button7.UseVisualStyleBackColor = true;
             // 
@@ -88,9 +91,10 @@
             btnDatlichkham.FlatAppearance.BorderSize = 0;
             btnDatlichkham.FlatStyle = FlatStyle.Flat;
             btnDatlichkham.Image = (Image)resources.GetObject("btnDatlichkham.Image");
-            btnDatlichkham.Location = new Point(1489, 20);
+            btnDatlichkham.Location = new Point(2765, 38);
+            btnDatlichkham.Margin = new Padding(6);
             btnDatlichkham.Name = "btnDatlichkham";
-            btnDatlichkham.Size = new Size(108, 37);
+            btnDatlichkham.Size = new Size(201, 70);
             btnDatlichkham.TabIndex = 8;
             btnDatlichkham.UseVisualStyleBackColor = true;
             btnDatlichkham.Click += btnDatlichkham_Click;
@@ -101,9 +105,10 @@
             button5.FlatAppearance.BorderSize = 0;
             button5.FlatStyle = FlatStyle.Flat;
             button5.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button5.Location = new Point(1238, 31);
+            button5.Location = new Point(2299, 58);
+            button5.Margin = new Padding(6);
             button5.Name = "button5";
-            button5.Size = new Size(146, 25);
+            button5.Size = new Size(0, 47);
             button5.TabIndex = 7;
             button5.Text = "Lịch hẹn của tôi";
             button5.UseVisualStyleBackColor = true;
@@ -115,9 +120,10 @@
             button4.FlatAppearance.BorderSize = 0;
             button4.FlatStyle = FlatStyle.Flat;
             button4.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button4.Location = new Point(1017, 31);
+            button4.Location = new Point(1889, 58);
+            button4.Margin = new Padding(6);
             button4.Name = "button4";
-            button4.Size = new Size(133, 25);
+            button4.Size = new Size(0, 47);
             button4.TabIndex = 6;
             button4.Text = "Đội ngũ bác sĩ";
             button4.UseVisualStyleBackColor = true;
@@ -128,9 +134,10 @@
             button3.FlatAppearance.BorderSize = 0;
             button3.FlatStyle = FlatStyle.Flat;
             button3.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button3.Location = new Point(769, 33);
+            button3.Location = new Point(1428, 62);
+            button3.Margin = new Padding(6);
             button3.Name = "button3";
-            button3.Size = new Size(161, 25);
+            button3.Size = new Size(0, 47);
             button3.TabIndex = 5;
             button3.Text = "Chuyên khoa";
             button3.UseVisualStyleBackColor = true;
@@ -141,9 +148,10 @@
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = FlatStyle.Flat;
             button2.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            button2.Location = new Point(599, 31);
+            button2.Location = new Point(1112, 58);
+            button2.Margin = new Padding(6);
             button2.Name = "button2";
-            button2.Size = new Size(122, 25);
+            button2.Size = new Size(0, 47);
             button2.TabIndex = 4;
             button2.Text = "Giới thiệu";
             button2.UseVisualStyleBackColor = true;
@@ -154,9 +162,10 @@
             btnTrangchu.FlatAppearance.BorderSize = 0;
             btnTrangchu.FlatStyle = FlatStyle.Flat;
             btnTrangchu.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold);
-            btnTrangchu.Location = new Point(404, 31);
+            btnTrangchu.Location = new Point(750, 58);
+            btnTrangchu.Margin = new Padding(6);
             btnTrangchu.Name = "btnTrangchu";
-            btnTrangchu.Size = new Size(117, 25);
+            btnTrangchu.Size = new Size(0, 47);
             btnTrangchu.TabIndex = 3;
             btnTrangchu.Text = "Trang chủ";
             btnTrangchu.UseVisualStyleBackColor = true;
@@ -172,8 +181,9 @@
             label1.Image = (Image)resources.GetObject("label1.Image");
             label1.ImageAlign = ContentAlignment.MiddleLeft;
             label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new Size(260, 48);
+            label1.Size = new Size(467, 86);
             label1.TabIndex = 2;
             label1.Text = "       EcoHealth";
             // 
@@ -181,18 +191,20 @@
             // 
             panelMain.AutoScroll = true;
             panelMain.Dock = DockStyle.Fill;
-            panelMain.Location = new Point(0, 85);
+            panelMain.Location = new Point(0, 160);
+            panelMain.Margin = new Padding(6);
             panelMain.Name = "panelMain";
-            panelMain.Size = new Size(1684, 812);
+            panelMain.Size = new Size(2564, 1395);
             panelMain.TabIndex = 1;
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1684, 897);
+            ClientSize = new Size(2564, 1555);
             Controls.Add(panelMain);
             Controls.Add(panel1);
+            Margin = new Padding(6);
             Name = "FormMain";
             Text = "FormMain";
             WindowState = FormWindowState.Maximized;
