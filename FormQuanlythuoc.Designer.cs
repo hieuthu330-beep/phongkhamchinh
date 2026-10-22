@@ -30,6 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQuanlythuoc));
             dtgThuoc = new DataGridView();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            Column5 = new DataGridViewTextBoxColumn();
+            Column6 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewTextBoxColumn();
             panel4 = new Panel();
             btnSua = new Button();
             label14 = new Label();
@@ -63,12 +69,6 @@
             panel5 = new Panel();
             pictureBox4 = new PictureBox();
             txtMota = new TextBox();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column6 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            Column8 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dtgThuoc).BeginInit();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -91,7 +91,62 @@
             dtgThuoc.RowHeadersWidth = 45;
             dtgThuoc.Size = new Size(847, 799);
             dtgThuoc.TabIndex = 50;
-            dtgThuoc.MouseClick += dtgThuoc_MouseClick;
+            dtgThuoc.CellMouseClick += dtgThuoc_CellMouseClick;
+       
+            // 
+            // Column1
+            // 
+            Column1.DataPropertyName = "ThuocID";
+            Column1.HeaderText = "Mã thuốc";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            Column1.Width = 80;
+            // 
+            // Column2
+            // 
+            Column2.DataPropertyName = "TenThuoc";
+            Column2.HeaderText = "Tên thuốc";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            Column2.Width = 150;
+            // 
+            // Column5
+            // 
+            Column5.DataPropertyName = "DonViTinh";
+            Column5.HeaderText = "ĐVT";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.ReadOnly = true;
+            Column5.Width = 110;
+            // 
+            // Column6
+            // 
+            Column6.DataPropertyName = "DonGia";
+            Column6.HeaderText = "Đơn giá";
+            Column6.MinimumWidth = 6;
+            Column6.Name = "Column6";
+            Column6.ReadOnly = true;
+            Column6.Width = 150;
+            // 
+            // Column7
+            // 
+            Column7.DataPropertyName = "SoLuongTon";
+            Column7.HeaderText = "Số lượng tồn";
+            Column7.MinimumWidth = 6;
+            Column7.Name = "Column7";
+            Column7.ReadOnly = true;
+            Column7.Width = 110;
+            // 
+            // Column8
+            // 
+            Column8.DataPropertyName = "MoTa";
+            Column8.HeaderText = "Mô tả ";
+            Column8.MinimumWidth = 6;
+            Column8.Name = "Column8";
+            Column8.ReadOnly = true;
+            Column8.Width = 200;
             // 
             // panel4
             // 
@@ -468,60 +523,6 @@
             txtMota.Name = "txtMota";
             txtMota.Size = new Size(562, 138);
             txtMota.TabIndex = 49;
-            // 
-            // Column1
-            // 
-            Column1.DataPropertyName = "ThuocID";
-            Column1.HeaderText = "Mã thuốc";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Width = 80;
-            // 
-            // Column2
-            // 
-            Column2.DataPropertyName = "TenThuoc";
-            Column2.HeaderText = "Tên thuốc";
-            Column2.MinimumWidth = 6;
-            Column2.Name = "Column2";
-            Column2.ReadOnly = true;
-            Column2.Width = 150;
-            // 
-            // Column5
-            // 
-            Column5.DataPropertyName = "DonViTinh";
-            Column5.HeaderText = "ĐVT";
-            Column5.MinimumWidth = 6;
-            Column5.Name = "Column5";
-            Column5.ReadOnly = true;
-            Column5.Width = 110;
-            // 
-            // Column6
-            // 
-            Column6.DataPropertyName = "DonGia";
-            Column6.HeaderText = "Đơn giá";
-            Column6.MinimumWidth = 6;
-            Column6.Name = "Column6";
-            Column6.ReadOnly = true;
-            Column6.Width = 150;
-            // 
-            // Column7
-            // 
-            Column7.DataPropertyName = "SoLuongTon";
-            Column7.HeaderText = "Số lượng tồn";
-            Column7.MinimumWidth = 6;
-            Column7.Name = "Column7";
-            Column7.ReadOnly = true;
-            Column7.Width = 110;
-            // 
-            // Column8
-            // 
-            Column8.DataPropertyName = "MoTa";
-            Column8.HeaderText = "Mô tả ";
-            Column8.MinimumWidth = 6;
-            Column8.Name = "Column8";
-            Column8.ReadOnly = true;
-            Column8.Width = 200;
             // 
             // FormQuanlythuoc
             // 

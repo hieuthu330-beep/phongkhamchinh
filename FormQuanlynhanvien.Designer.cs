@@ -470,7 +470,7 @@
             dtgNhanvien.RowHeadersWidth = 45;
             dtgNhanvien.Size = new Size(870, 633);
             dtgNhanvien.TabIndex = 27;
-            dtgNhanvien.MouseClick += dtgNhanvien_MouseClick;
+            dtgNhanvien.CellMouseClick += dtgNhanvien_CellMouseClick;
             // 
             // Column1
             // 

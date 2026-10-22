@@ -43,8 +43,8 @@ namespace phongkham1
         {
             // Dùng CASE WHEN trong SQL để chuyển cột TrangThai từ số (1, 0) thành chữ "Đang hoạt động" / "Ngừng hoạt động"
             string sql = @"SELECT ChuyenKhoaID, TenChuyenKhoa, MoTa, 
-                           CASE WHEN TrangThai = 1 THEN N'Đang hoạt động' 
-                                ELSE N'Ngừng hoạt động' 
+                           CASE WHEN TrangThai = 0 THEN N'Ngừng hoạt động' 
+                                ELSE N'Đang hoạt động' 
                            END AS TrangThai 
                            FROM ChuyenKhoa";
             DataTable dt = ConnectDB.readdata(sql);
@@ -185,7 +185,7 @@ namespace phongkham1
 
             if (dialogResult == DialogResult.Yes)
             {
-                string maChuyenKhoa = txtMachuyenkhoa.Text.Trim();
+                string maChuyenKhoa = txtMachuyenkhoa.Text;
                 string sql = "DELETE FROM ChuyenKhoa WHERE ChuyenKhoaID = " + maChuyenKhoa;
 
                 int result = ConnectDB.writedata(sql);
@@ -221,12 +221,12 @@ namespace phongkham1
         // Sự kiện khi bấm nút "Tìm kiếm"
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
-            string tuKhoa = txtTimkiem.Text; // Lấy từ khóa người dùng gõ vào ô tìm kiếm
+            string tuKhoa = txtTimkiem.Text.Trim(); // Lấy từ khóa người dùng gõ vào ô tìm kiếm
 
             // Lọc dữ liệu theo Mã chuyên khoa hoặc Tên chuyên khoa chứa từ khóa
             string sql = @"SELECT ChuyenKhoaID, TenChuyenKhoa, MoTa, 
-                           CASE WHEN TrangThai = 1 THEN N'Đang hoạt động' 
-                                ELSE N'Ngừng hoạt động' 
+                           CASE WHEN TrangThai = 0 THEN N'Ngừng hoạt động' 
+                                ELSE N'Đang hoạt động' 
                            END AS TrangThai 
                            FROM ChuyenKhoa 
                            WHERE ChuyenKhoaID LIKE N'%" + tuKhoa + "%' OR TenChuyenKhoa LIKE N'%" + tuKhoa + "%'";
@@ -244,19 +244,21 @@ namespace phongkham1
         }
 
         // Sự kiện khi người dùng click chuột vào một dòng trên bảng DataGridView để đưa dữ liệu ngược lên các ô nhập
-        private void dtgChuyenkhoa_MouseClick(object sender, MouseEventArgs e)
+        private void dtgChuyenkhoa_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int rowIndex = dtgChuyenkhoa.HitTest(e.X, e.Y).RowIndex; // Lấy vị trí dòng được click
-
-            if (rowIndex >= 0)
+            // e.RowIndex tự động kiểm tra dòng hợp lệ (>= 0)
+            if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dtgChuyenkhoa.Rows[rowIndex];
+                DataGridViewRow row = dtgChuyenkhoa.Rows[e.RowIndex];
 
-                // Đổ dữ liệu từ các cột của dòng đó lên các TextBox / ComboBox tương ứng
+                // Gán đúng thứ tự cột từ trái sang phải trên bảng Quản lý chuyên khoa:
                 txtMachuyenkhoa.Text = row.Cells[0].Value.ToString();   // Cột 0: Mã chuyên khoa
                 txtTenchuyenkhoa.Text = row.Cells[1].Value.ToString();  // Cột 1: Tên chuyên khoa
-                txtMota.Text = row.Cells[2].Value.ToString() == "" ? "" : row.Cells[2].Value.ToString(); // Cột 2: Mô tả
-                cboTrangthai.Text = row.Cells[3].Value.ToString();      // Cột 3: Trạng thái ("Đang hoạt động" hoặc "Ngừng hoạt động")
+
+                // Xử lý chống lỗi nếu ô mô tả bị giá trị null/trống
+                txtMota.Text = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : ""; // Cột 2: Mô tả
+
+                cboTrangthai.Text = row.Cells[3].Value.ToString();      // Cột 3: Trạng thái ("Đang hoạt động" / "Ngừng hoạt động")
             }
         }
     }

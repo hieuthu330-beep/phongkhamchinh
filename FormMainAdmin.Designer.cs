@@ -34,7 +34,6 @@
             btn_Nhanvien = new Button();
             button5 = new Button();
             btn_Chuyenkhoa = new Button();
-            button3 = new Button();
             button1 = new Button();
             label3 = new Label();
             panel4 = new Panel();
@@ -57,7 +56,6 @@
             panel1.Controls.Add(btn_Nhanvien);
             panel1.Controls.Add(button5);
             panel1.Controls.Add(btn_Chuyenkhoa);
-            panel1.Controls.Add(button3);
             panel1.Controls.Add(button1);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(panel4);
@@ -77,7 +75,7 @@
             btn_Thuoc.ForeColor = Color.White;
             btn_Thuoc.Image = (Image)resources.GetObject("btn_Thuoc.Image");
             btn_Thuoc.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Thuoc.Location = new Point(15, 476);
+            btn_Thuoc.Location = new Point(18, 409);
             btn_Thuoc.Name = "btn_Thuoc";
             btn_Thuoc.Size = new Size(234, 58);
             btn_Thuoc.TabIndex = 8;
@@ -95,7 +93,7 @@
             btn_Nhanvien.ForeColor = Color.White;
             btn_Nhanvien.Image = (Image)resources.GetObject("btn_Nhanvien.Image");
             btn_Nhanvien.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Nhanvien.Location = new Point(15, 409);
+            btn_Nhanvien.Location = new Point(15, 345);
             btn_Nhanvien.Name = "btn_Nhanvien";
             btn_Nhanvien.Size = new Size(234, 58);
             btn_Nhanvien.TabIndex = 7;
@@ -140,24 +138,6 @@
             btn_Chuyenkhoa.TextAlign = ContentAlignment.MiddleLeft;
             btn_Chuyenkhoa.UseVisualStyleBackColor = true;
             btn_Chuyenkhoa.Click += btn_Chuyenkhoa_Click;
-            // 
-            // button3
-            // 
-            button3.FlatAppearance.BorderColor = Color.FromArgb(0, 85, 143);
-            button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 85, 143);
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Microsoft Sans Serif", 10.18868F, FontStyle.Bold);
-            button3.ForeColor = Color.White;
-            button3.Image = (Image)resources.GetObject("button3.Image");
-            button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(15, 345);
-            button3.Name = "button3";
-            button3.RightToLeft = RightToLeft.No;
-            button3.Size = new Size(237, 58);
-            button3.TabIndex = 5;
-            button3.Text = "            Quản lý lịch hẹn";
-            button3.TextAlign = ContentAlignment.MiddleLeft;
-            button3.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -294,7 +274,6 @@
         private Button btn_Nhanvien;
         private Button button5;
         private Button btn_Chuyenkhoa;
-        private Button button3;
         private Button button1;
         private Label label3;
         private Panel panel4;

@@ -238,7 +238,7 @@
             dtgChuyenkhoa.ScrollBars = ScrollBars.None;
             dtgChuyenkhoa.Size = new Size(918, 719);
             dtgChuyenkhoa.TabIndex = 21;
-            dtgChuyenkhoa.MouseClick += dtgChuyenkhoa_MouseClick;
+            dtgChuyenkhoa.CellMouseClick += dtgChuyenkhoa_CellMouseClick;
             // 
             // Column1
             // 

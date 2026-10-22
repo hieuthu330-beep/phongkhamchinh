@@ -36,8 +36,8 @@ namespace phongkham1
         private void LoaddtgNhanvien()
         {
             string sql = @"SELECT NhanVienID, HoTen, SoDienThoai, ChucVu, MoTa, TaiKhoanID, 
-               CASE WHEN TrangThai = 1 THEN N'Đang làm việc' 
-                    ELSE N'Đã nghỉ việc' 
+               CASE WHEN TrangThai = 0 THEN N'Đã nghỉ việc' 
+                    ELSE N'Đang làm việc' 
                END AS TrangThai
                FROM NhanVien";
             DataTable dt = ConnectDB.readdata(sql);
@@ -157,22 +157,21 @@ namespace phongkham1
             }
         }
 
-        private void dtgNhanvien_MouseClick(object sender, MouseEventArgs e)
+        private void dtgNhanvien_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            int rowIndex = dtgNhanvien.HitTest(e.X, e.Y).RowIndex;
-
-            if (rowIndex >= 0)
+            // e.RowIndex tự động kiểm tra dòng hợp lệ (>= 0), tránh lỗi khi click vào khoảng trống
+            if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dtgNhanvien.Rows[rowIndex];
+                DataGridViewRow row = dtgNhanvien.Rows[e.RowIndex];
 
-                // Gán đúng thứ tự cột từ trái sang phải trên bảng:
+                // Gán đúng thứ tự cột từ trái sang phải trên bảng Quản lý nhân viên:
                 txtManhanvien.Text = row.Cells[0].Value.ToString(); // Cột 0: Mã nhân viên
-                txtHoten.Text = row.Cells[1].Value.ToString(); // Cột 1: Họ và tên
+                txtHoten.Text = row.Cells[1].Value.ToString();      // Cột 1: Họ và tên
                 txtSodienthoai.Text = row.Cells[2].Value.ToString(); // Cột 2: SĐT
-                // (Nếu có ô txtChucvu thì gán row.Cells[3] vào đây, nếu không có thì bỏ qua)
-                txtMota.Text = row.Cells[4].Value.ToString(); // Cột 4: Mô tả
+                                                                     // ChucVu (nếu có ô nhập chức vụ riêng thì gán vào đây)
+                txtMota.Text = row.Cells[4].Value.ToString();       // Cột 4: Mô tả
                 txtMataikhoan.Text = row.Cells[5].Value.ToString(); // Cột 5: Mã tài khoản
-                cboTrangthai.Text = row.Cells[6].Value.ToString(); // Cột 6: Trạng thái
+                cboTrangthai.Text = row.Cells[6].Value.ToString();  // Cột 6: Trạng thái ("Đang làm việc" / "Đã nghỉ việc")
             }
         }
 
@@ -195,7 +194,7 @@ namespace phongkham1
 
             if (dialogResult == DialogResult.Yes)
             {
-                string maNV = txtManhanvien.Text.Trim();
+                string maNV = txtManhanvien.Text;
 
                 // 3. Viết câu lệnh SQL DELETE
                 string sql = "DELETE FROM NhanVien WHERE NhanVienID = " + maNV;
@@ -237,13 +236,13 @@ namespace phongkham1
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
             // 1. Lấy từ khóa người dùng nhập vào
-            string tuKhoa = txtTimkiem.Text;
+            string tuKhoa = txtTimkiem.Text.Trim();
 
             // 2. Viết câu lệnh SQL tìm kiếm (có thể tìm theo Mã nhân viên hoặc Họ tên)
             // Nếu tuKhoa là số (Mã nhân viên) hoặc chữ (Họ tên), câu lệnh dưới đây sẽ lọc được cả hai
             string sql = @"SELECT NhanVienID, HoTen, SoDienThoai, ChucVu, MoTa, TaiKhoanID, 
-               CASE WHEN TrangThai = 1 THEN N'Đang làm việc' 
-                    ELSE N'Đã nghỉ việc' 
+               CASE WHEN TrangThai = 0 THEN N'Đã nghỉ việc' 
+                    ELSE N'Đang làm việc' 
                END AS TrangThai
                FROM NhanVien 
                WHERE NhanVienID LIKE N'%" + tuKhoa + "%' OR HoTen LIKE N'%" + tuKhoa + "%'";

@@ -55,24 +55,6 @@ namespace phongkham1
             txtMota.Text = "";
         }
 
-        private void dtgThuoc_MouseClick(object sender, MouseEventArgs e)
-        {
-            int rowIndex = dtgThuoc.HitTest(e.X, e.Y).RowIndex;
-
-            if (rowIndex >= 0)
-            {
-                DataGridViewRow row = dtgThuoc.Rows[rowIndex];
-
-                // Gán đúng thứ tự cột từ trái sang phải trên bảng:
-                txtMathuoc.Text = row.Cells[0].Value.ToString(); // Cột 0: Mã thuốc
-                txtTenthuoc.Text = row.Cells[1].Value.ToString(); // Cột 1: Tên thuốc
-                txtDonvitinh.Text = row.Cells[2].Value.ToString(); // Cột 2: Đơn vị tính
-                txtDongia.Text = row.Cells[3].Value.ToString(); // Cột 3: Đơn giá
-                txtSoluongton.Text = row.Cells[4].Value.ToString(); // Cột 4: Số lượng tồn
-                txtMota.Text = row.Cells[5].Value.ToString(); // Cột 5: Mô tả
-            }
-        }
-
         private void btnThem_Click(object sender, EventArgs e)
         {
             // Bật nút Lưu, khóa các nút Thêm, Sửa, Ngừng SD lại
@@ -256,7 +238,7 @@ namespace phongkham1
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
             // 1. Lấy từ khóa người dùng nhập vào ô tìm kiếm
-            string tuKhoa = txtTimkiem.Text;
+            string tuKhoa = txtTimkiem.Text.Trim();
 
             // 2. Viết câu lệnh SQL tìm kiếm theo Mã thuốc (ThuocID) hoặc Tên thuốc (TenThuoc)
             string sql = @"SELECT ThuocID, TenThuoc, DonViTinh, DonGia, SoLuongTon, MoTa 
@@ -277,6 +259,22 @@ namespace phongkham1
 
                 // Tùy chọn: Nếu không tìm thấy, có thể load lại toàn bộ danh sách cũ
                 // LoaddtgThuoc();
+            }
+        }
+
+        private void dtgThuoc_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // e.RowIndex tự động trả về số thứ tự dòng được click (nếu >= 0 là dòng hợp lệ)
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dtgThuoc.Rows[e.RowIndex];
+
+                txtMathuoc.Text = row.Cells[0].Value.ToString();
+                txtTenthuoc.Text = row.Cells[1].Value.ToString();
+                txtDonvitinh.Text = row.Cells[2].Value.ToString();
+                txtDongia.Text = row.Cells[3].Value.ToString();
+                txtSoluongton.Text = row.Cells[4].Value.ToString();
+                txtMota.Text = row.Cells[5].Value.ToString();
             }
         }
     }
