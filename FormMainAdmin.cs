@@ -53,7 +53,7 @@ namespace phongkham1
 
                 // 3. Khởi tạo và hiển thị màn hình giới thiệu / đăng nhập
                 // Thay 'FormIntro' bằng tên class Form giới thiệu thực tế trong dự án của bạn
-                Form1 formIntro = new Form1();
+                Form1 formIntro = new Form1 ();
                 formIntro.Show();
 
                 // 4. Đóng Form quản trị hiện tại (FormMainAdmin)
