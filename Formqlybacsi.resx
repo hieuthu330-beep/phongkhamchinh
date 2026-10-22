@@ -117,4 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAA50RVh0U29mdHdhcmUARmlnbWGesZZjAAAA4ElEQVQoU4VS0RGCMAzNCG6gG+AG
+        8g0FORdwBEZgBL48EvSuIzgCIzgCIzACmrSUlnqau3dtk7xL3gOAAjUUNP8HjpDqHUhwosQaVJf+BPfx
+        6UiS7E+gqIlQ0jXoCx5cLPohAG9QdQfThzomfQuFiTTndlrla5K9qXGiVT/Y2mim0iR1FwuJ11hE853B
+        tQzPoHCAnNqYFBiBia21dvoEl8c+Jjkj6Oka+GQdAcEn+ZHdzUpSw9poowly1OYDm8TWgFk0OHNwFPvF
+        EKwhNOB2XKfTa53m7hsX/dj+FT4+hr0BgGjFCOg2pNcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

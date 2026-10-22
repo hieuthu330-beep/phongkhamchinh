@@ -1,14 +1,20 @@
 using System.Data;
+using System.Drawing.Text;
 
 namespace phongkham1
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
             InitializeComponent();
+            
         }
-
+        private void bamnutdangkyy(object sender, EventArgs e)
+        {
+            this.Show();
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -66,7 +72,7 @@ namespace phongkham1
                 // === PHÂN QUYỀN ĐIỀU HƯỚNG FORM DỰA VÀO VAI TRÒ ===
                 string vaiTro = UserSession.CurrentUser.VaiTro.Trim();
 
-                if (vaiTro=="BacSi")
+                if (vaiTro == "BacSi")
                 {
                     // Nếu là Admin -> Mở Form quản trị của Admin
                     FormKhamBenh frmbasi = new FormKhamBenh();
@@ -93,6 +99,17 @@ namespace phongkham1
                 MessageBox.Show("Tên đăng nhập hoặc mật khẩu không chính xác!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormDky dky= new FormDky();
+            
+            dky.bamnutdangky += bamnutdangkyy;
+            dky.Show();
+            this.Hide();
         }
     }
 }

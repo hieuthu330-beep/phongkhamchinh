@@ -42,6 +42,8 @@
             label6 = new Label();
             label7 = new Label();
             panel2 = new Panel();
+            label15 = new Label();
+            button1 = new Button();
             btnLogin = new Button();
             label8 = new Label();
             label10 = new Label();
@@ -77,17 +79,18 @@
             tableLayoutPanelDangnhap.Controls.Add(panel2, 1, 0);
             tableLayoutPanelDangnhap.Dock = DockStyle.Fill;
             tableLayoutPanelDangnhap.Location = new Point(0, 0);
+            tableLayoutPanelDangnhap.Margin = new Padding(5);
             tableLayoutPanelDangnhap.Name = "tableLayoutPanelDangnhap";
             tableLayoutPanelDangnhap.RowCount = 1;
             tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanelDangnhap.Size = new Size(1262, 731);
+            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanelDangnhap.RowStyles.Add(new RowStyle(SizeType.Absolute, 32F));
+            tableLayoutPanelDangnhap.Size = new Size(2051, 1170);
             tableLayoutPanelDangnhap.TabIndex = 0;
             // 
             // panel1
@@ -103,9 +106,10 @@
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label7);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(5, 5);
+            panel1.Margin = new Padding(5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(625, 725);
+            panel1.Size = new Size(1015, 1160);
             panel1.TabIndex = 0;
             // 
             // panel3
@@ -115,8 +119,9 @@
             panel3.Controls.Add(label2);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
+            panel3.Margin = new Padding(5);
             panel3.Name = "panel3";
-            panel3.Size = new Size(625, 99);
+            panel3.Size = new Size(1015, 158);
             panel3.TabIndex = 12;
             // 
             // label1
@@ -127,9 +132,10 @@
             label1.ForeColor = Color.FromArgb(0, 97, 148);
             label1.Image = (Image)resources.GetObject("label1.Image");
             label1.ImageAlign = ContentAlignment.MiddleLeft;
-            label1.Location = new Point(2, 15);
+            label1.Location = new Point(3, 24);
+            label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
-            label1.Size = new Size(290, 54);
+            label1.Size = new Size(467, 86);
             label1.TabIndex = 1;
             label1.Text = "       EcoHealth";
             // 
@@ -138,9 +144,10 @@
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
             label2.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(55, 69);
+            label2.Location = new Point(89, 110);
+            label2.Margin = new Padding(5, 0, 5, 0);
             label2.Name = "label2";
-            label2.Size = new Size(259, 17);
+            label2.Size = new Size(419, 30);
             label2.TabIndex = 2;
             label2.Text = "Hệ thống Quản lý Phòng khám Thông minh";
             label2.Click += label2_Click;
@@ -148,7 +155,8 @@
             // pictureBox5
             // 
             pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(35, 314);
+            pictureBox5.Location = new Point(57, 502);
+            pictureBox5.Margin = new Padding(5);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(64, 64);
             pictureBox5.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -163,9 +171,10 @@
             label5.Font = new Font("Segoe UI", 7.8F);
             label5.Image = (Image)resources.GetObject("label5.Image");
             label5.ImageAlign = ContentAlignment.MiddleLeft;
-            label5.Location = new Point(0, 674);
+            label5.Location = new Point(0, 1070);
+            label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
-            label5.Size = new Size(378, 17);
+            label5.Size = new Size(599, 30);
             label5.TabIndex = 5;
             label5.Text = "     Đồng bộ đa phân hệ: Tiếp đón, Khám bệnh, CLS & Nhà thuốc";
             // 
@@ -177,9 +186,10 @@
             label4.Font = new Font("Segoe UI", 7.8F);
             label4.Image = (Image)resources.GetObject("label4.Image");
             label4.ImageAlign = ContentAlignment.MiddleLeft;
-            label4.Location = new Point(0, 691);
+            label4.Location = new Point(0, 1100);
+            label4.Margin = new Padding(5, 0, 5, 0);
             label4.Name = "label4";
-            label4.Size = new Size(325, 17);
+            label4.Size = new Size(518, 30);
             label4.TabIndex = 4;
             label4.Text = "     Bảo mật dữ liệu bệnh nhân & mã hóa phiên AES-256";
             // 
@@ -191,9 +201,10 @@
             label3.Font = new Font("Segoe UI", 7.8F);
             label3.Image = (Image)resources.GetObject("label3.Image");
             label3.ImageAlign = ContentAlignment.MiddleLeft;
-            label3.Location = new Point(0, 708);
+            label3.Location = new Point(0, 1130);
+            label3.Margin = new Padding(5, 0, 5, 0);
             label3.Name = "label3";
-            label3.Size = new Size(330, 17);
+            label3.Size = new Size(526, 30);
             label3.TabIndex = 3;
             label3.Text = "     Quản lý hồ sơ bệnh án điện tử (EMR) chuẩn Bộ Y Tế";
             // 
@@ -202,9 +213,10 @@
             label6.AutoSize = true;
             label6.BackColor = Color.Transparent;
             label6.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(129, 328);
+            label6.Location = new Point(210, 525);
+            label6.Margin = new Padding(5, 0, 5, 0);
             label6.Name = "label6";
-            label6.Size = new Size(249, 23);
+            label6.Size = new Size(409, 38);
             label6.TabIndex = 10;
             label6.Text = "Trung tâm Y khoa Kỹ thuật cao";
             // 
@@ -213,14 +225,17 @@
             label7.AutoSize = true;
             label7.BackColor = Color.Transparent;
             label7.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(129, 361);
+            label7.Location = new Point(210, 578);
+            label7.Margin = new Padding(5, 0, 5, 0);
             label7.Name = "label7";
-            label7.Size = new Size(264, 17);
+            label7.Size = new Size(419, 30);
             label7.TabIndex = 11;
             label7.Text = "Hệ thống phân quyền vai trò bảo mật cấp 3";
             // 
             // panel2
             // 
+            panel2.Controls.Add(label15);
+            panel2.Controls.Add(button1);
             panel2.Controls.Add(btnLogin);
             panel2.Controls.Add(label8);
             panel2.Controls.Add(label10);
@@ -235,10 +250,33 @@
             panel2.Controls.Add(label12);
             panel2.Controls.Add(pictureBox8);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(634, 3);
+            panel2.Location = new Point(1030, 5);
+            panel2.Margin = new Padding(5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(625, 725);
+            panel2.Size = new Size(1016, 1160);
             panel2.TabIndex = 1;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(285, 751);
+            label15.Name = "label15";
+            label15.Size = new Size(218, 32);
+            label15.TabIndex = 10;
+            label15.Text = "Chưa có tài khoản?";
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.ForeColor = Color.DodgerBlue;
+            button1.Location = new Point(521, 744);
+            button1.Name = "button1";
+            button1.Size = new Size(150, 46);
+            button1.TabIndex = 9;
+            button1.Text = "Đăng ký";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // btnLogin
             // 
@@ -247,9 +285,10 @@
             btnLogin.FlatAppearance.BorderSize = 0;
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(201, 410);
+            btnLogin.Location = new Point(327, 656);
+            btnLogin.Margin = new Padding(5);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(189, 34);
+            btnLogin.Size = new Size(307, 54);
             btnLogin.TabIndex = 8;
             btnLogin.Text = "Đăng nhập hệ thống";
             btnLogin.UseVisualStyleBackColor = false;
@@ -262,9 +301,10 @@
             label8.BackColor = Color.Transparent;
             label8.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.FromArgb(0, 97, 148);
-            label8.Location = new Point(140, 161);
+            label8.Location = new Point(228, 258);
+            label8.Margin = new Padding(5, 0, 5, 0);
             label8.Name = "label8";
-            label8.Size = new Size(172, 41);
+            label8.Size = new Size(275, 65);
             label8.TabIndex = 1;
             label8.Text = "Đăng nhập";
             // 
@@ -273,9 +313,10 @@
             label10.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(153, 244);
+            label10.Location = new Point(249, 390);
+            label10.Margin = new Padding(5, 0, 5, 0);
             label10.Name = "label10";
-            label10.Size = new Size(66, 17);
+            label10.Size = new Size(107, 30);
             label10.TabIndex = 3;
             label10.Text = "EcoHealth";
             // 
@@ -283,7 +324,8 @@
             // 
             pictureBox6.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(311, 179);
+            pictureBox6.Location = new Point(505, 286);
+            pictureBox6.Margin = new Padding(5);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(8, 8);
             pictureBox6.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -293,10 +335,11 @@
             // txtUsername
             // 
             txtUsername.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            txtUsername.Location = new Point(154, 293);
+            txtUsername.Location = new Point(250, 469);
+            txtUsername.Margin = new Padding(5);
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderText = "vui lòng nhập tài khoản";
-            txtUsername.Size = new Size(303, 27);
+            txtUsername.Size = new Size(490, 39);
             txtUsername.TabIndex = 6;
             // 
             // label11
@@ -304,9 +347,10 @@
             label11.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 7.20000029F);
-            label11.Location = new Point(154, 273);
+            label11.Location = new Point(250, 437);
+            label11.Margin = new Padding(5, 0, 5, 0);
             label11.Name = "label11";
-            label11.Size = new Size(185, 17);
+            label11.Size = new Size(274, 28);
             label11.TabIndex = 5;
             label11.Text = "Tên đăng nhập / Số điện thoại";
             // 
@@ -315,9 +359,10 @@
             label9.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(152, 214);
+            label9.Location = new Point(247, 342);
+            label9.Margin = new Padding(5, 0, 5, 0);
             label9.Name = "label9";
-            label9.Size = new Size(351, 17);
+            label9.Size = new Size(560, 30);
             label9.TabIndex = 2;
             label9.Text = "Chào mừng bạn quay trở lại hệ thống quản lý phòng khám";
             // 
@@ -325,7 +370,8 @@
             // 
             pictureBox7.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(116, 290);
+            pictureBox7.Location = new Point(188, 464);
+            pictureBox7.Margin = new Padding(5);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(34, 36);
             pictureBox7.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -338,20 +384,22 @@
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 7.20000029F);
             label14.ForeColor = SystemColors.ActiveBorder;
-            label14.Location = new Point(379, 344);
+            label14.Location = new Point(616, 550);
+            label14.Margin = new Padding(5, 0, 5, 0);
             label14.Name = "label14";
-            label14.Size = new Size(78, 17);
+            label14.Size = new Size(116, 28);
             label14.TabIndex = 5;
             label14.Text = "txtPassword";
             // 
             // txtPassword
             // 
             txtPassword.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            txtPassword.Location = new Point(154, 360);
+            txtPassword.Location = new Point(250, 576);
+            txtPassword.Margin = new Padding(5);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.PlaceholderText = "vui lòng nhập mật khẩu";
-            txtPassword.Size = new Size(303, 27);
+            txtPassword.Size = new Size(490, 39);
             txtPassword.TabIndex = 7;
             // 
             // label13
@@ -360,9 +408,10 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 7.20000029F);
             label13.ForeColor = SystemColors.ActiveBorder;
-            label13.Location = new Point(376, 273);
+            label13.Location = new Point(611, 437);
+            label13.Margin = new Padding(5, 0, 5, 0);
             label13.Name = "label13";
-            label13.Size = new Size(81, 17);
+            label13.Size = new Size(122, 28);
             label13.TabIndex = 5;
             label13.Text = "txtUsername";
             // 
@@ -371,9 +420,10 @@
             label12.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 7.20000029F);
-            label12.Location = new Point(156, 340);
+            label12.Location = new Point(254, 544);
+            label12.Margin = new Padding(5, 0, 5, 0);
             label12.Name = "label12";
-            label12.Size = new Size(62, 17);
+            label12.Size = new Size(94, 28);
             label12.TabIndex = 5;
             label12.Text = "Mật khẩu";
             // 
@@ -381,7 +431,8 @@
             // 
             pictureBox8.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
-            pictureBox8.Location = new Point(115, 351);
+            pictureBox8.Location = new Point(187, 562);
+            pictureBox8.Margin = new Padding(5);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(33, 36);
             pictureBox8.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -402,10 +453,11 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1262, 731);
+            ClientSize = new Size(2051, 1170);
             Controls.Add(tableLayoutPanelDangnhap);
+            Margin = new Padding(5);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Đăng nhập";
@@ -453,5 +505,7 @@
         private Button btnLogin;
         private Panel panel3;
         private Panel panel2;
+        private Label label15;
+        private Button button1;
     }
 }
