@@ -43,6 +43,7 @@
             label1 = new Label();
             pictureBox1 = new PictureBox();
             pnlNoidung = new Panel();
+            button3 = new Button();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel3.SuspendLayout();
@@ -52,6 +53,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(0, 78, 132);
+            panel1.Controls.Add(button3);
             panel1.Controls.Add(btn_Thuoc);
             panel1.Controls.Add(btn_Nhanvien);
             panel1.Controls.Add(button5);
@@ -75,7 +77,7 @@
             btn_Thuoc.ForeColor = Color.White;
             btn_Thuoc.Image = (Image)resources.GetObject("btn_Thuoc.Image");
             btn_Thuoc.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_Thuoc.Location = new Point(18, 409);
+            btn_Thuoc.Location = new Point(15, 409);
             btn_Thuoc.Name = "btn_Thuoc";
             btn_Thuoc.Size = new Size(234, 58);
             btn_Thuoc.TabIndex = 8;
@@ -249,6 +251,24 @@
             pnlNoidung.Size = new Size(1410, 1018);
             pnlNoidung.TabIndex = 2;
             // 
+            // button3
+            // 
+            button3.FlatAppearance.BorderColor = Color.FromArgb(0, 85, 143);
+            button3.FlatAppearance.MouseDownBackColor = Color.FromArgb(0, 85, 143);
+            button3.FlatStyle = FlatStyle.Flat;
+            button3.Font = new Font("Microsoft Sans Serif", 10.18868F, FontStyle.Bold);
+            button3.ForeColor = Color.White;
+            button3.Image = (Image)resources.GetObject("button3.Image");
+            button3.ImageAlign = ContentAlignment.MiddleLeft;
+            button3.Location = new Point(15, 473);
+            button3.Name = "button3";
+            button3.RightToLeft = RightToLeft.No;
+            button3.Size = new Size(237, 58);
+            button3.TabIndex = 9;
+            button3.Text = "            Quản lý lịch hẹn";
+            button3.TextAlign = ContentAlignment.MiddleLeft;
+            button3.UseVisualStyleBackColor = true;
+            // 
             // FormMainAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -283,5 +303,6 @@
         private Label label1;
         private PictureBox pictureBox1;
         private Panel pnlNoidung;
+        private Button button3;
     }
 }
