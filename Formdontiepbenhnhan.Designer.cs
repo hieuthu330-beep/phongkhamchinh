@@ -48,10 +48,10 @@
             // 
             dgvLichHen.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLichHen.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8 });
-            dgvLichHen.Location = new Point(12, 289);
+            dgvLichHen.Location = new Point(241, 314);
             dgvLichHen.Name = "dgvLichHen";
             dgvLichHen.RowHeadersWidth = 51;
-            dgvLichHen.Size = new Size(1305, 233);
+            dgvLichHen.Size = new Size(1054, 233);
             dgvLichHen.TabIndex = 0;
             // 
             // Column1
@@ -128,7 +128,7 @@
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(251, 146);
+            txtTimKiem.Location = new Point(516, 143);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.PlaceholderText = "Nhập tên bệnh nhân...";
             txtTimKiem.Size = new Size(439, 27);
@@ -136,7 +136,7 @@
             // 
             // btnTimKiem
             // 
-            btnTimKiem.Location = new Point(251, 194);
+            btnTimKiem.Location = new Point(383, 204);
             btnTimKiem.Name = "btnTimKiem";
             btnTimKiem.Size = new Size(94, 29);
             btnTimKiem.TabIndex = 2;
@@ -146,7 +146,7 @@
             // 
             // btnLoadTatCa
             // 
-            btnLoadTatCa.Location = new Point(414, 194);
+            btnLoadTatCa.Location = new Point(670, 204);
             btnLoadTatCa.Name = "btnLoadTatCa";
             btnLoadTatCa.Size = new Size(94, 29);
             btnLoadTatCa.TabIndex = 2;
@@ -156,7 +156,7 @@
             // 
             // btnCheckIn
             // 
-            btnCheckIn.Location = new Point(596, 194);
+            btnCheckIn.Location = new Point(985, 204);
             btnCheckIn.Name = "btnCheckIn";
             btnCheckIn.Size = new Size(94, 29);
             btnCheckIn.TabIndex = 2;

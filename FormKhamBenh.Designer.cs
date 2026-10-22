@@ -56,6 +56,7 @@
             Column10 = new DataGridViewTextBoxColumn();
             txtSoLuong = new TextBox();
             btnHoanTatKham = new Button();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDanhSachCho).BeginInit();
             siticonePanel1.SuspendLayout();
             siticonePanel2.SuspendLayout();
@@ -70,7 +71,7 @@
             dgvDanhSachCho.Location = new Point(186, 105);
             dgvDanhSachCho.Name = "dgvDanhSachCho";
             dgvDanhSachCho.RowHeadersWidth = 51;
-            dgvDanhSachCho.Size = new Size(840, 188);
+            dgvDanhSachCho.Size = new Size(803, 188);
             dgvDanhSachCho.TabIndex = 0;
             dgvDanhSachCho.CellMouseClick += dgvDanhSachCho_CellMouseClick;
             // 
@@ -139,10 +140,10 @@
             siticonePanel1.BorderGradientStartColor = Color.Blue;
             siticonePanel1.BorderThickness = 2F;
             siticonePanel1.Controls.Add(lblTrieuchung);
-            siticonePanel1.CornerRadiusBottomLeft = 0F;
-            siticonePanel1.CornerRadiusBottomRight = 0F;
-            siticonePanel1.CornerRadiusTopLeft = 0F;
-            siticonePanel1.CornerRadiusTopRight = 0F;
+            siticonePanel1.CornerRadiusBottomLeft = 15F;
+            siticonePanel1.CornerRadiusBottomRight = 15F;
+            siticonePanel1.CornerRadiusTopLeft = 15F;
+            siticonePanel1.CornerRadiusTopRight = 15F;
             siticonePanel1.EnableAcrylicEffect = false;
             siticonePanel1.EnableMicaEffect = false;
             siticonePanel1.EnableRippleEffect = false;
@@ -180,9 +181,10 @@
             // lblTrieuchung
             // 
             lblTrieuchung.AutoSize = true;
-            lblTrieuchung.Location = new Point(79, 42);
+            lblTrieuchung.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTrieuchung.Location = new Point(58, 65);
             lblTrieuchung.Name = "lblTrieuchung";
-            lblTrieuchung.Size = new Size(50, 20);
+            lblTrieuchung.Size = new Size(59, 25);
             lblTrieuchung.TabIndex = 0;
             lblTrieuchung.Text = "label1";
             // 
@@ -200,10 +202,10 @@
             siticonePanel2.Controls.Add(label1);
             siticonePanel2.Controls.Add(txtLoiDan);
             siticonePanel2.Controls.Add(txtChanDoan);
-            siticonePanel2.CornerRadiusBottomLeft = 0F;
-            siticonePanel2.CornerRadiusBottomRight = 0F;
-            siticonePanel2.CornerRadiusTopLeft = 0F;
-            siticonePanel2.CornerRadiusTopRight = 0F;
+            siticonePanel2.CornerRadiusBottomLeft = 15F;
+            siticonePanel2.CornerRadiusBottomRight = 15F;
+            siticonePanel2.CornerRadiusTopLeft = 15F;
+            siticonePanel2.CornerRadiusTopRight = 15F;
             siticonePanel2.EnableAcrylicEffect = false;
             siticonePanel2.EnableMicaEffect = false;
             siticonePanel2.EnableRippleEffect = false;
@@ -241,7 +243,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(39, 152);
+            label2.Location = new Point(67, 161);
             label2.Name = "label2";
             label2.Size = new Size(55, 20);
             label2.TabIndex = 3;
@@ -258,16 +260,18 @@
             // 
             // txtLoiDan
             // 
-            txtLoiDan.Location = new Point(151, 154);
+            txtLoiDan.Location = new Point(165, 154);
+            txtLoiDan.Multiline = true;
             txtLoiDan.Name = "txtLoiDan";
-            txtLoiDan.Size = new Size(125, 27);
+            txtLoiDan.Size = new Size(246, 71);
             txtLoiDan.TabIndex = 1;
             // 
             // txtChanDoan
             // 
             txtChanDoan.Location = new Point(165, 65);
+            txtChanDoan.Multiline = true;
             txtChanDoan.Name = "txtChanDoan";
-            txtChanDoan.Size = new Size(125, 27);
+            txtChanDoan.Size = new Size(246, 71);
             txtChanDoan.TabIndex = 0;
             // 
             // siticonePanel3
@@ -288,10 +292,10 @@
             siticonePanel3.Controls.Add(txtCachDung);
             siticonePanel3.Controls.Add(dgvChiTietDon);
             siticonePanel3.Controls.Add(txtSoLuong);
-            siticonePanel3.CornerRadiusBottomLeft = 0F;
-            siticonePanel3.CornerRadiusBottomRight = 0F;
-            siticonePanel3.CornerRadiusTopLeft = 0F;
-            siticonePanel3.CornerRadiusTopRight = 0F;
+            siticonePanel3.CornerRadiusBottomLeft = 15F;
+            siticonePanel3.CornerRadiusBottomRight = 15F;
+            siticonePanel3.CornerRadiusTopLeft = 15F;
+            siticonePanel3.CornerRadiusTopRight = 15F;
             siticonePanel3.EnableAcrylicEffect = false;
             siticonePanel3.EnableMicaEffect = false;
             siticonePanel3.EnableRippleEffect = false;
@@ -366,16 +370,16 @@
             // cbThuoc
             // 
             cbThuoc.FormattingEnabled = true;
-            cbThuoc.Location = new Point(74, 32);
+            cbThuoc.Location = new Point(23, 32);
             cbThuoc.Name = "cbThuoc";
-            cbThuoc.Size = new Size(151, 28);
+            cbThuoc.Size = new Size(202, 28);
             cbThuoc.TabIndex = 2;
             // 
             // txtCachDung
             // 
-            txtCachDung.Location = new Point(100, 154);
+            txtCachDung.Location = new Point(23, 154);
             txtCachDung.Name = "txtCachDung";
-            txtCachDung.Size = new Size(125, 27);
+            txtCachDung.Size = new Size(202, 27);
             txtCachDung.TabIndex = 1;
             // 
             // dgvChiTietDon
@@ -385,7 +389,7 @@
             dgvChiTietDon.Location = new Point(89, 310);
             dgvChiTietDon.Name = "dgvChiTietDon";
             dgvChiTietDon.RowHeadersWidth = 51;
-            dgvChiTietDon.Size = new Size(553, 188);
+            dgvChiTietDon.Size = new Size(553, 298);
             dgvChiTietDon.TabIndex = 0;
             // 
             // Column7
@@ -426,26 +430,37 @@
             // 
             // txtSoLuong
             // 
-            txtSoLuong.Location = new Point(100, 85);
+            txtSoLuong.Location = new Point(23, 85);
             txtSoLuong.Name = "txtSoLuong";
-            txtSoLuong.Size = new Size(125, 27);
+            txtSoLuong.Size = new Size(202, 27);
             txtSoLuong.TabIndex = 0;
             // 
             // btnHoanTatKham
             // 
-            btnHoanTatKham.Location = new Point(733, 875);
+            btnHoanTatKham.Location = new Point(522, 883);
             btnHoanTatKham.Name = "btnHoanTatKham";
-            btnHoanTatKham.Size = new Size(112, 29);
+            btnHoanTatKham.Size = new Size(168, 53);
             btnHoanTatKham.TabIndex = 4;
             btnHoanTatKham.Text = "Hoàn tất";
             btnHoanTatKham.UseVisualStyleBackColor = true;
             btnHoanTatKham.Click += btnHoanTatKham_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(186, 35);
+            label6.Name = "label6";
+            label6.Size = new Size(130, 38);
+            label6.TabIndex = 5;
+            label6.Text = "Lịch Hẹn";
             // 
             // FormKhamBenh
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1924, 1055);
+            Controls.Add(label6);
             Controls.Add(btnHoanTatKham);
             Controls.Add(siticonePanel3);
             Controls.Add(siticonePanel2);
@@ -463,6 +478,7 @@
             siticonePanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvChiTietDon).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -495,5 +511,6 @@
         private DataGridViewTextBoxColumn Column8;
         private DataGridViewTextBoxColumn Column9;
         private DataGridViewTextBoxColumn Column10;
+        private Label label6;
     }
 }
